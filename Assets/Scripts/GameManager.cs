@@ -1,8 +1,15 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
-    public int numBalls {  get; private set; }
+    public static GameManager game;
+    protected void Awake ()
+    {
+        game = GetComponent<GameManager> ();
+    }
+
+    public int numBalls { get; private set; }
+    public int numBlocks { get; private set; }
     public int score;
 
 
