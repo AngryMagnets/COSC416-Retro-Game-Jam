@@ -369,68 +369,6 @@ MonoBehaviour:
   maxAngle: 90
   mouseWheelAngle: 0
   scrollSpeed: 0.5
---- !u!1001 &2030653556
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3315915784758443127, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_Name
-      value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3455704240194935550, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
---- !u!1 &2030653557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3315915784758443127, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
-  m_PrefabInstance: {fileID: 2030653556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4217279255870601004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -480,13 +418,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7025304096960028924, guid: 6e476990f216dc545932330c375862cf, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 3315915784758443127, guid: 119d0bed31e346c45b6de238a0499f81, type: 3}
+    - target: {fileID: 7025304096960028924, guid: 6e476990f216dc545932330c375862cf, type: 3}
       propertyPath: ballPrefab
       value: 
-      objectReference: {fileID: 2030653557}
+      objectReference: {fileID: 0}
     - target: {fileID: 7025304096960028924, guid: 6e476990f216dc545932330c375862cf, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7025304096960028924, guid: 6e476990f216dc545932330c375862cf, type: 3}
+      propertyPath: shootForce
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 8280656741610599402, guid: 6e476990f216dc545932330c375862cf, type: 3}
       propertyPath: m_Name
       value: Player
@@ -506,4 +452,3 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 4217279255870601004}
-  - {fileID: 2030653556}
