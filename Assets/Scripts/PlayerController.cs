@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private InputManager inputManager;
+    [SerializeField] private float mouseWheelAngle;
+
     public Transform shooterPivot;
     public Camera mainCamera;
+    public GameObject ball;
 
     public float spriteOffset = 90f;
     public float minAngle = -90f;
     public float maxAngle = 90f;
 
-    public float mouseWheelAngle = 0f;
     public float scrollSpeed = 0.5f;
+
+    public float shootForce = -10f;
+
+    private void Awake()
+    {
+        inputManager.OnShoot.AddListener(Shoot);
+    }
     void Update()
     {
         //getting mouse position in world space
@@ -40,5 +50,18 @@ public class PlayerController : MonoBehaviour
 
         //apply the rotation
         shooterPivot.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+    private void Shoot()
+    {
+        GameObject newBall = Instantiate(ball, shooterPivot.position, shooterPivot.rotation);
+
+        Rigidbody2D rb = newBall.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            //apply force
+            rb.AddForce(shooterPivot.up * shootForce, ForceMode2D.Impulse);
+        }
     }
 }
