@@ -169,6 +169,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -647,7 +673,28 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      move-mouse_0: 5764976018412000489
+      move-mouse_1: -6201588382481969780
+      move-mouse_10: -1295332155600465227
+      move-mouse_11: 5133428198079813181
+      move-mouse_12: 2902762728945644474
+      move-mouse_13: -7795659043022805820
+      move-mouse_14: 2272299531261991559
+      move-mouse_15: -7373136426698149015
+      move-mouse_16: 2515040382246691675
+      move-mouse_17: -2391060091944830820
+      move-mouse_18: 2971614207718613751
+      move-mouse_19: 1411159224337574478
+      move-mouse_2: 4068342009612538323
+      move-mouse_20: -8051813160928368126
+      move-mouse_3: -5929195651588218238
+      move-mouse_4: -3346245363905850456
+      move-mouse_5: -5858931239119879359
+      move-mouse_6: -1682661128875576793
+      move-mouse_7: -8666050679921591524
+      move-mouse_8: 1003190419551489283
+      move-mouse_9: 5383762749443921053
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
