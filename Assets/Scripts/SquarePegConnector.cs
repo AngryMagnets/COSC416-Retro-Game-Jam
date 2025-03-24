@@ -66,16 +66,16 @@ public class SquarePegConnector : MonoBehaviour
                     {
                     thisNewCorners = new Vector2((float)(thisWidth / 2 * (Math.Cos(thisRotation) - Math.Sin(thisRotation))),
                         (float)(thisWidth / 2 * (Math.Cos(thisRotation) + Math.Sin(thisRotation))));
-                    otherNewCorners = new Vector2((float)(otherWidth/ -2 * (Math.Cos(otherRotation) - Math.Sin(otherRotation))),
-                            (float)(otherWidth / -2 * (Math.Cos(otherRotation) + Math.Sin(otherRotation))));
+                    otherNewCorners = new Vector2((float)(otherWidth * thisMesh.GetSquish().x / -2 * Math.Cos(otherRotation) + otherWidth * thisMesh.GetSquish().y / 2* Math.Sin(otherRotation)),
+                            (float)(otherWidth * thisMesh.GetSquish().y / -2 * Math.Cos(otherRotation) - otherWidth * thisMesh.GetSquish().x / 2 *Math.Sin(otherRotation)));
 
                     }
                     else
                     {
                     thisNewCorners = new Vector2((float)(thisWidth / 2 * (Math.Cos(thisRotation) + Math.Sin(thisRotation))),
                             (float)(thisWidth / -2 * (Math.Cos(thisRotation) - Math.Sin(thisRotation))));
-                        otherNewCorners = new Vector2((float)(otherWidth / -2 * (Math.Cos(otherRotation) + Math.Sin(otherRotation))),
-                            (float)(otherWidth / 2 * (Math.Cos(otherRotation) - Math.Sin(otherRotation))));
+                        otherNewCorners = new Vector2((float)(otherWidth * thisMesh.GetSquish().x / -2 * Math.Cos(otherRotation) - otherWidth * thisMesh.GetSquish().y / 2* Math.Sin(otherRotation)),
+                            (float)(otherWidth * thisMesh.GetSquish().y / 2 * Math.Cos(otherRotation) - otherWidth * thisMesh.GetSquish().x / 2*Math.Sin(otherRotation)));
 
                     }
                 }
