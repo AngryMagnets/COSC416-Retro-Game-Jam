@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d26daff0350f46242baa1a46942fbb08
+guid: 1c677f39e0978f340933cec24d662c1f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1798956639223077307
-    second: Gem Type2 Black_0
+      213: 270867796513690207
+    second: bowl_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,17 +46,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 450
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -113,33 +113,47 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gem Type2 Black_0
+      name: bowl_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 54
-        height: 54
+        width: 950
+        height: 497
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54627c8c772d807e0800000000000000
-      internalID: -1798956639223077307
+      spriteID: f529a4863d052c300800000000000000
+      internalID: 270867796513690207
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline: []
+    outline:
+    - - {x: 475, y: 92.5}
+      - {x: 429, y: 118.5}
+      - {x: 375, y: 140.5}
+      - {x: 262, y: 169.5}
+      - {x: 138, y: 187.5}
+      - {x: 11, y: 193.5}
+      - {x: -127, y: 187.5}
+      - {x: -253, y: 171.5}
+      - {x: -318, y: 156.5}
+      - {x: -372, y: 140.5}
+      - {x: -423, y: 123.5}
+      - {x: -475, y: 99.5}
+      - {x: -475, y: -248.5}
+      - {x: 475, y: -248.5}
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +162,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gem Type2 Black_0: -1798956639223077307
+      bowl_0: 270867796513690207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
