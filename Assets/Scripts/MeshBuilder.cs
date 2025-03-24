@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(PolygonCollider2D))]
+[ExecuteInEditMode]
 public class MeshBuilder : MonoBehaviour
 {
     [SerializeField] public Vector2[] cornerPoints = new Vector2[2];
