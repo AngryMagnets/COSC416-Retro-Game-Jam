@@ -3,14 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(PolygonCollider2D))]
 public class MeshBuilder : MonoBehaviour
 {
-    [SerializeField] Vector2[] cornerPoints = new Vector2[2];
-    [SerializeField] float bezierIntensity = 0.5f;
+    [SerializeField] public Vector2[] cornerPoints = new Vector2[2];
+    [SerializeField] public float bezierIntensity = 0.5f;
     [SerializeField] Vector3 bezierSqueeze; //x squeezes bottom half, 1-y sets width
     [SerializeField] int bezierVertexCount = 10;
 
     [SerializeField] bool generateCollider = false;
 
-    void OnEnable()
+    void Start()
     {
 
         var mesh = new Mesh
@@ -71,5 +71,15 @@ public class MeshBuilder : MonoBehaviour
 
         if (generateCollider) GetComponent<PolygonCollider2D>().SetPath(0, vertices2D);
         GetComponent<MeshFilter>().mesh = mesh;
+    }
+
+    public Vector2[] GetCorners()
+    {
+        return cornerPoints;
+    }
+
+    public Vector3 GetSquish()
+    {
+        return bezierSqueeze;
     }
 }
