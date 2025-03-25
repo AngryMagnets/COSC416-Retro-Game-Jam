@@ -11,12 +11,13 @@ public class Peg : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (notHit)
+        if (notHit && collision.gameObject.CompareTag("Ball"))
         {
             PegHit?.Invoke(type);
             Debug.Log(type + " Hit");
             notHit = false;
             //flash color
+            //flashSprite.enable(); ??? as a child to each peg prefab, can edit
         }
     }
 
