@@ -42,8 +42,26 @@ public class LayoutHandler : MonoBehaviour
         return true;
     }
 
-    void UpdateColor(char color)
+    public void UpdatePurplePeg()
     {
+        if (purplePeg!=null)
+        {
+            purplePeg.UpdateColor('b');
+        }
+        int i;
+        do
+        {
+            i = Random.Range(0, pegs.Length);
+        } while (!checkForBluePeg(i));
+        pegs[i].UpdateColor('p');
+    }
 
+    private bool checkForBluePeg(int i)
+    {
+        if (pegs[i] != null)
+        {
+            if (pegs[i].GetType() == 'b') return true;
+        }
+        return false;
     }
 }
