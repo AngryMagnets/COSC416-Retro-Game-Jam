@@ -6,10 +6,17 @@ using TMPro;
 
 public class BallManager : MonoBehaviour
 {
-    [SerializeField] private GameManager gm;
-    [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject ball;
-    [SerializeField] private int startingBalls;
+    [SerializeField] 
+    private GameManager gm;
+    
+    [SerializeField] 
+    private Transform spawnPoint;
+    
+    [SerializeField] 
+    private GameObject ball;
+    
+    [SerializeField] 
+    private int startingBalls;
 
     [SerializeField] TextMeshProUGUI ballText;
 
@@ -25,7 +32,7 @@ public class BallManager : MonoBehaviour
     private void Start()
     {
         numBalls = 0;
-        ballList = new List<GameObject>();
+        ballList = new List<GameObject>(startingBalls);
     }
     void Awake()
     {
@@ -34,14 +41,17 @@ public class BallManager : MonoBehaviour
 
     public void AddBall ()
     {
-        Instantiate(ball, spawnPoint);
+        GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
+        ballList.Add(spawnBall);
         numBalls++;
+        updateText();
     }
 
     public void RemoveBall()
     {
         ballList[0].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
         numBalls--;
+        updateText();
         GameObject temp = ballList[0];  
         ballList.RemoveAt(0);
         Destroy(temp);
@@ -52,10 +62,17 @@ public class BallManager : MonoBehaviour
         if (ballCount > 0)
         {
             yield return new WaitForSeconds(0.3f);
-            ballList.Add(Instantiate(ball, spawnPoint));
+            GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
+            ballList.Add(spawnBall);
             numBalls++;
+            updateText();
             StartCoroutine(AddBalls(ballCount - 1));
         }
         yield return new WaitForSeconds(0f);
+    }
+
+    private void updateText ()
+    {
+        ballText.SetText($"{numBalls}");
     }
 }
