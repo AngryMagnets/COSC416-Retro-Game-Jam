@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//Builds mesh for square peg with bend
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(PolygonCollider2D))]
 [ExecuteInEditMode]
 public class MeshBuilder : MonoBehaviour

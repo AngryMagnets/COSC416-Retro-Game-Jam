@@ -1,6 +1,18 @@
 using UnityEngine;
 using System;
 
+/// <summary>
+/// MonoBehviour <c>SquarePegConnector</c> Runs in editor
+/// <para>
+/// Only to be used in level creation, can be removed before final build
+/// </para>
+/// <para>
+/// Generates square pegs from this one that are aligned with each other <br/>
+/// Must set <paramref name="isStart"></paramref> to true for it to generate. Will set back to false after generating. <br/>
+/// <paramref name="flipValues"></paramref> Sets an index where the peg gets flipped and will generate start rotating in the opposite direction <br/>
+/// X and Y scale of object must be equal
+/// </para>
+/// </summary>
 [RequireComponent (typeof(MeshBuilder))]
 [ExecuteInEditMode]
 public class SquarePegConnector : MonoBehaviour
@@ -11,13 +23,14 @@ public class SquarePegConnector : MonoBehaviour
 
     private void OnEnable()
     {
-        if (isStart)
+        if (isStart)    //Only starts generating if this peg is the starting peg
         {
             isStart = false;
             AdjustPeg();
         }
     }
 
+    //Do not touch, am not commenting this shit
     public void AdjustPeg()
     {
         if (pegGenerateCount > 0)
@@ -39,7 +52,6 @@ public class SquarePegConnector : MonoBehaviour
                 double otherAngle = (float)Math.Abs(Mathf.Rad2Deg * Math.Atan((thisCorners[0].x - otherScaledCorner.x) / (thisCorners[0].y - otherScaledCorner.y)));
                 double otherRotation = transform.localEulerAngles.z * Mathf.Deg2Rad;
 
-                //if (thisCorners[0].y - otherCorners[0].y == 0)
                 if (!flipContains())
                 {
                     if (thisCorners[0].y < 0)
@@ -93,6 +105,10 @@ public class SquarePegConnector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method <c>flipContains</c> checks if current peg is to be flipped
+    /// </summary>
+    /// <returns></returns>
     private bool flipContains()
     {
         for (int i = 0; i<flipValues.Length;i++)
