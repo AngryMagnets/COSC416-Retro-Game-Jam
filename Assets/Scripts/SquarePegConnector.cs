@@ -79,8 +79,9 @@ public class SquarePegConnector : MonoBehaviour
 
                     }
                 }
-                MeshBuilder adjacentSquares = Instantiate(this.gameObject, new Vector2(transform.localPosition.x, transform.localPosition.y) + (thisNewCorners - otherNewCorners),
+                MeshBuilder adjacentSquares = Instantiate(this.gameObject, new Vector2(transform.position.x, transform.position.y) + (thisNewCorners - otherNewCorners),
                     Quaternion.Euler(0, 0, (float)(otherRotation * Mathf.Rad2Deg))).GetComponent<MeshBuilder>();
+            adjacentSquares.transform.parent = transform.parent;
             if (flipContains())
             {
                 adjacentSquares.bezierIntensity = -adjacentSquares.bezierIntensity;

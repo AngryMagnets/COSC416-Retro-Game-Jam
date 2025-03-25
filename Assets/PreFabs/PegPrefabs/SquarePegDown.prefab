@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1484917210386156591}
   - component: {fileID: 7105338968609158708}
   m_Layer: 0
-  m_Name: SquarePeg
+  m_Name: SquarePegDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
