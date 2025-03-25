@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
         game = GetComponent<GameManager> ();
     }
 
-    public int numBalls { get; private set; }
+    public bool isShotActive = false;
     public int numBlocks { get; private set; }
     public int score;
 

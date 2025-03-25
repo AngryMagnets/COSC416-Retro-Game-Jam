@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     public float shootForce = -10f;
 
+    private bool canShoot = true;
+
     private void Awake()
     {
         inputManager.OnShoot.AddListener(Shoot);
@@ -54,14 +56,23 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        GameObject newBall = Instantiate(ball, shooterPivot.position, shooterPivot.rotation);
-
-        Rigidbody2D rb = newBall.GetComponent<Rigidbody2D>();
-
-        if (rb != null)
+        if (canShoot)
         {
-            //apply force
-            rb.AddForce(shooterPivot.up * shootForce, ForceMode2D.Impulse);
+            canShoot = false;
+            GameObject newBall = Instantiate(ball, shooterPivot.position, shooterPivot.rotation);
+
+            Rigidbody2D rb = newBall.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
+            {
+                //apply force
+                rb.AddForce(shooterPivot.up * shootForce, ForceMode2D.Impulse);
+            }
         }
+    }
+
+    public void NextTurn ()
+    {
+        canShoot = true;
     }
 }
