@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (PauseManager.instance.IsSettingsMenuActive)
+        {
+            return;
+        }
         //getting mouse position in world space
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f; //only using x,y since we want 2d
