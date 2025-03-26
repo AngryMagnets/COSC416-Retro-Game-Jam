@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +11,9 @@ public class Peg : MonoBehaviour
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
     private bool notHit = true;
 
+    [SerializeField] 
+    private float stuckTimer;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (notHit && collision.gameObject.CompareTag("Ball"))
@@ -19,6 +24,33 @@ public class Peg : MonoBehaviour
             //flash color
             //flashSprite.enable(); ??? as a child to each peg prefab, can edit
         }
+    }
+    // Could do this logic in an update function with conditionals but this also works
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        StartCoroutine(checkBallStuck());
+    }
+    private IEnumerator checkBallStuck()
+    {
+        yield return new WaitForSeconds(stuckTimer);
+        //Debug.Log("Unsticking");
+        try
+        {
+            PolygonCollider2D pc = this.GetComponent<PolygonCollider2D>(); pc.enabled = false;
+            if (pc != null)
+            {
+                pc.enabled = false;
+            }
+        }
+        catch (MissingComponentException) 
+        {
+            BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
+            bc.enabled = false;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        this.StopAllCoroutines();
     }
     /// <summary>
     /// Method <c>GetColor</c> Returns peg color

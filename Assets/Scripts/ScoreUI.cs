@@ -30,7 +30,7 @@ public class ScoreUI : MonoBehaviour
 
     }
 
-    void UpdateScore (int score)
+    public void UpdateScore (int score)
     {
         toUpdate.SetText($"{score}");
         container.DOLocalMoveY(containerInitPosition + moveAmount, duration).SetEase(AnimationCurve);

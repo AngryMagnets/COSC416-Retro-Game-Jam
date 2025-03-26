@@ -17,10 +17,11 @@ public class PlayerController : MonoBehaviour
 
     public float shootForce = -10f;
 
-    private bool canShoot = true;
+    public bool canShoot { get; set; }
 
     private void Awake()
     {
+        canShoot = false;
         inputManager.OnShoot.AddListener(Shoot);
     }
     void Update()

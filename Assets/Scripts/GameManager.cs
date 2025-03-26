@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     /// Set a listener for PlayerController.NextTurn()
     /// </summary>
     [SerializeField] public UnityEvent NextTurn;
+    [SerializeField] public BallManager ballManager;
+    [SerializeField] private ScoreUI scoreUI;
 
-    public bool isShotActive = false;
+    //public bool isShotActive = false; // Pretty sure I don't need this, basically an alias for !PlayerController.canShoot
     public int numPegs { get; private set; }
     public int score;
     private List<Peg> touchedPegs;
@@ -29,10 +31,12 @@ public class GameManager : MonoBehaviour
     {
         if (isInBucket)
         {
-
+            Debug.Log("Landed In Bucket");
+            ballManager.AddBall();
         }
         foreach (Peg p in touchedPegs)
         {
+            //Debug.Log(p.gameObject.name);
             int pScore = 0;
             char type = p.type;
             switch (type)
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
             }
             //pScore *= scoreMult;
             score += pScore;
-
+            scoreUI.UpdateScore(score);
             // Do other things
             NextTurn?.Invoke();
         }

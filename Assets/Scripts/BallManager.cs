@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -8,8 +9,11 @@ public class BallManager : MonoBehaviour
 {
     //[SerializeField] 
     //private GameManager gm;
+    [Header("General Settings")]
     [SerializeField]
     TextMeshProUGUI ballText;
+    [SerializeField]
+    PlayerController player;
 
     [Header("Ball Spawning")]
     [SerializeField] 
@@ -36,6 +40,7 @@ public class BallManager : MonoBehaviour
     }
     void Awake()
     {
+        player.canShoot = false;
         StartCoroutine(AddBalls(startingBalls));
     }
 
@@ -49,16 +54,26 @@ public class BallManager : MonoBehaviour
 
     public void RemoveBall()
     {
-        ballList[0].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
-        numBalls--;
-        updateText();
-        GameObject temp = ballList[0];  
-        ballList.RemoveAt(0);
-        Destroy(temp);
+        if (player.canShoot)
+        {
+            ballList[0].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
+            numBalls--;
+            updateText();
+            GameObject ball = ballList[0];
+            ballList.RemoveAt(0);
+            StartCoroutine(DeleteBall(ball));
+        }
     }
 
-    private IEnumerator<WaitForSeconds> AddBalls (int ballCount)
+    private IEnumerator DeleteBall (GameObject ball)
     {
+        yield return new WaitForSeconds(1f);
+        Destroy(ball);
+    }
+
+    private IEnumerator AddBalls (int ballCount)
+    {
+        player.canShoot = false;
         if (ballCount > 0)
         {
             yield return new WaitForSeconds(0.3f);
@@ -68,7 +83,12 @@ public class BallManager : MonoBehaviour
             updateText();
             StartCoroutine(AddBalls(ballCount - 1));
         }
-        yield return new WaitForSeconds(0f);
+        else
+        {
+            //Debug.Log("Setting canShoot True");
+            player.canShoot = true;
+        }
+        yield return null;
     }
 
     private void updateText ()

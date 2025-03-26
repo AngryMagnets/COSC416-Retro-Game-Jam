@@ -191,12 +191,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &3133445034302438968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,12 +403,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &2034302130968278349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,12 +615,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &8224286079281397477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,12 +827,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &2876201982628797574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,12 +1039,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &8303830221924402599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1251,12 +1251,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &1881832523996194372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,12 +1463,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &4241818653405553812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1675,12 +1675,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &5169580035297414446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,12 +1887,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &3924893476234777720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2099,12 +2099,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &1337402955029340426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,12 +2361,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &7988477846190752913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,12 +2573,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &6123653377409292305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,12 +2785,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &7259148264562135874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2997,12 +2997,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &2422151048006398660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3209,12 +3209,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &6202162529774127243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3421,12 +3421,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &867217542639929557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3633,12 +3633,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &2908361724135223523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3845,12 +3845,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &2431252464026324035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4057,12 +4057,12 @@ MonoBehaviour:
   PegHit:
     m_PersistentCalls:
       m_Calls: []
-  type: 98
   colors:
   - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
   - {r: 1, g: 0.49803922, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
+  stuckTimer: 3.3
 --- !u!114 &402336527710716578
 MonoBehaviour:
   m_ObjectHideFlags: 0
