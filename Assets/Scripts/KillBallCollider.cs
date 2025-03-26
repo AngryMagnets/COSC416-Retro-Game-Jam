@@ -18,20 +18,8 @@ public class KillBallCollider : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
-            Debug.Log(this.gameObject.name + " Ball in kill collider");
-            //StartCoroutine(deleteBall(collision.gameObject));
             ballDestroyed?.Invoke(ballBucket);
             Destroy(collision.gameObject);
         }
-    }
-
-
-
-    /// <summary>
-    /// Ensures GameManager logic can commence properly before the reference is destroyed
-    /// </summary>
-    private IEnumerator deleteBall(GameObject ball)
-    {
-        yield return new WaitForSeconds(0.3f);
     }
 }

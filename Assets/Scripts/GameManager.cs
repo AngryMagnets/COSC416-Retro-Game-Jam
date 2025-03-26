@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             //Debug.Log(p.gameObject.name);
             int pScore = 0;
-            char type = p.type;
+            char type = p.GetColor();
             switch (type)
             {
                 case 'b':

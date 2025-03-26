@@ -7,7 +7,7 @@ public class Peg : MonoBehaviour
 {
     public UnityEvent<char> PegHit; //Message with color of peg being hit
 
-    public char type { get; private set; } = 'b';  //'b' blue, 'o' orange, 'g' green, 'p' purple 
+    private char type = 'b';  //'b' blue, 'o' orange, 'g' green, 'p' purple 
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
     private bool notHit = true;
 
@@ -19,7 +19,7 @@ public class Peg : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isCurrentlyTouched = true;
-        if (notHit && collision.gameObject.CompareTag("Ball"))
+        if (notHit)
         {
             PegHit?.Invoke(type);   //Sends Message with color of peg that this was hit
             notHit = false;
