@@ -44,8 +44,8 @@ public class Peg : MonoBehaviour
         }
         catch (MissingComponentException) 
         {
-            BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
-            bc.enabled = false;
+            CircleCollider2D cc = this.GetComponent<CircleCollider2D>();
+            cc.enabled = false;
         }
     }
     private void OnCollisionExit(Collision collision)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UnityEvent NextTurn;
     [SerializeField] public BallManager ballManager;
     [SerializeField] private ScoreUI scoreUI;
+    [SerializeField] private PlayerController playerController;
 
     //public bool isShotActive = false; // Pretty sure I don't need this, basically an alias for !PlayerController.canShoot
     public int numPegs { get; private set; }
@@ -19,6 +21,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (playerController == null)
+        { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
         touchedPegs = new List<Peg>();
     }
 
@@ -61,8 +65,23 @@ public class GameManager : MonoBehaviour
             //pScore *= scoreMult;
             score += pScore;
             scoreUI.UpdateScore(score);
+            StartCoroutine(clearPegs());
             // Do other things
-            NextTurn?.Invoke();
+            // NextTurn?.Invoke();
         }
+    }
+
+    private IEnumerator clearPegs()
+    {
+        GameObject destroyTarget = touchedPegs[0].gameObject;
+        touchedPegs.RemoveAt(0);
+        yield return new WaitForSeconds(0.1f);
+        Destroy(destroyTarget);
+        if (touchedPegs.Count == 0)
+        {
+            playerController.canShoot = true;
+            yield break;
+        }
+        else { StartCoroutine(clearPegs()); }
     }
 }
