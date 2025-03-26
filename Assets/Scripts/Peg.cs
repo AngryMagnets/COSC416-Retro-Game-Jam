@@ -14,8 +14,11 @@ public class Peg : MonoBehaviour
     [SerializeField] 
     private float stuckTimer;
 
+    private bool isCurrentlyTouched = false;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        isCurrentlyTouched = true;
         if (notHit && collision.gameObject.CompareTag("Ball"))
         {
             PegHit?.Invoke(type);   //Sends Message with color of peg that this was hit
@@ -28,29 +31,40 @@ public class Peg : MonoBehaviour
     // Could do this logic in an update function with conditionals but this also works
     private void OnCollisionStay2D(Collision2D collision)
     {
+        isCurrentlyTouched = true;
         StartCoroutine(checkBallStuck());
     }
     private IEnumerator checkBallStuck()
     {
-        yield return new WaitForSeconds(stuckTimer);
-        //Debug.Log("Unsticking");
-        try
+        if (isCurrentlyTouched)
         {
-            PolygonCollider2D pc = this.GetComponent<PolygonCollider2D>(); pc.enabled = false;
-            if (pc != null)
+            yield return new WaitForSeconds(stuckTimer);
+            //Debug.Log("Unsticking");
+            
+            try
             {
-                pc.enabled = false;
+                MeshRenderer mr = this.gameObject.GetComponent<MeshRenderer>();
+                PolygonCollider2D pc = this.GetComponent<PolygonCollider2D>(); pc.enabled = false;
+                if (pc != null)
+                {
+                    mr.enabled = false;
+                    pc.enabled = false;
+                }
             }
-        }
-        catch (MissingComponentException) 
-        {
-            CircleCollider2D cc = this.GetComponent<CircleCollider2D>();
-            cc.enabled = false;
+            catch (MissingComponentException)
+            {
+                SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
+                CircleCollider2D cc = this.GetComponent<CircleCollider2D>();
+                sr.enabled = false;
+                cc.enabled = false;
+            }
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        this.StopAllCoroutines();
+        isCurrentlyTouched = false;
+        StopAllCoroutines();
+        StopCoroutine(checkBallStuck()); // Extra redundancy cause Idk why this is kind of working
     }
     /// <summary>
     /// Method <c>GetColor</c> Returns peg color
