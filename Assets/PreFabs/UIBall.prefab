@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 600807598626220714}
   - component: {fileID: 6957769398446143010}
   - component: {fileID: 6116011956679650740}
-  - component: {fileID: -6534798649819458540}
   m_Layer: 6
-  m_Name: Ball
+  m_Name: UIBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +84,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.5
-  m_LinearDamping: 0
+  m_LinearDamping: 0.1
   m_AngularDamping: 0
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: bb395ea74b7a12e4f908cc7d0b5f5d98, type: 2}
@@ -111,29 +110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592c794378a099743b02e529cd16dea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceStick: 2.8
-  bounceStickTime: 0.02
+  bounceStick: 3.8
+  bounceStickTime: 0.05
   materials:
   - {fileID: 6200000, guid: bb395ea74b7a12e4f908cc7d0b5f5d98, type: 2}
   - {fileID: 6200000, guid: 47bb8911559d9cd4787d81c736fdf810, type: 2}
---- !u!114 &-6534798649819458540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3315915784758443127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dddd6ab370f3f145bb54aca725e2ed9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballStuck:
-    m_PersistentCalls:
-      m_Calls: []
-  stuckTimer: 2
-  reStuckTime: 5
-  minVelocity: 0.02
 --- !u!1 &6936758249971821804
 GameObject:
   m_ObjectHideFlags: 0

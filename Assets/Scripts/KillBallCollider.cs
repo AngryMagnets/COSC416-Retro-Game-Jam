@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,12 +10,16 @@ public class KillBallCollider : MonoBehaviour
     [SerializeField] public UnityEvent<bool> ballDestroyed; //bool = ball bucket or not
     [SerializeField] private bool ballBucket = false;
 
+    private void Start()
+    {
+        ballDestroyed?.AddListener(GameManager.game.EndTurn);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ball"))
         {
-            Destroy(collision.gameObject);
             ballDestroyed?.Invoke(ballBucket);
+            Destroy(collision.gameObject);
         }
     }
 }
