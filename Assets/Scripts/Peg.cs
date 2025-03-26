@@ -5,7 +5,7 @@ public class Peg : MonoBehaviour
 {
     public UnityEvent<char> PegHit; //Message with color of peg being hit
 
-    [SerializeField] private char type = 'b'; //'b' blue, 'o' orange, 'g' green, 'p' purple
+    public char type { get; private set; } = 'b';  //'b' blue, 'o' orange, 'g' green, 'p' purple 
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
     private bool notHit = true;
 
@@ -15,6 +15,7 @@ public class Peg : MonoBehaviour
         {
             PegHit?.Invoke(type);   //Sends Message with color of peg that this was hit
             notHit = false;
+            GameManager.game.TouchPeg(this);
             //flash color
             //flashSprite.enable(); ??? as a child to each peg prefab, can edit
         }

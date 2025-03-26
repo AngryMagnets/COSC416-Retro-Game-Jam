@@ -6,20 +6,20 @@ using TMPro;
 
 public class BallManager : MonoBehaviour
 {
-    [SerializeField] 
-    private GameManager gm;
-    
+    //[SerializeField] 
+    //private GameManager gm;
+    [SerializeField]
+    TextMeshProUGUI ballText;
+
+    [Header("Ball Spawning")]
     [SerializeField] 
     private Transform spawnPoint;
-    
     [SerializeField] 
     private GameObject ball;
-    
     [SerializeField] 
     private int startingBalls;
-
-    [SerializeField] TextMeshProUGUI ballText;
-
+   
+    [Header("Removal Animation")]
     [SerializeField]
     private Ease AnimationCurve;
     [SerializeField]

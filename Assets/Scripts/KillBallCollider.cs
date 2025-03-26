@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,8 +14,17 @@ public class KillBallCollider : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
-            Destroy(collision.gameObject);
+            StartCoroutine(deleteBall(collision.gameObject));
             ballDestroyed?.Invoke(ballBucket);
         }
+    }
+
+    /// <summary>
+    /// Ensures GameManager logic can commence properly before the reference is destroyed
+    /// </summary>
+    private IEnumerator deleteBall(GameObject ball)
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(ball);
     }
 }
