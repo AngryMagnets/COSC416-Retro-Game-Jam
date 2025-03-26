@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private InputManager inputManager;
     public static PauseManager instance;
 
     private bool isSettingsMenuActive;
@@ -13,6 +14,7 @@ public class PauseManager : MonoBehaviour
     {
         instance = this;
         DisableSettingsMenu();
+        inputManager.OnPause.AddListener(EnableSettingsMenu);
     }
 
     public void ToggleSettingsMenu()
