@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Peg : MonoBehaviour
 {
-    public UnityEvent<char> PegHit; //Message with color of peg being hit
+    public UnityEvent<Peg> PegHit; //Message with color of peg being hit
 
     private char type = 'b';  //'b' blue, 'o' orange, 'g' green, 'p' purple 
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
@@ -16,14 +16,18 @@ public class Peg : MonoBehaviour
 
     private bool isCurrentlyTouched = false;
 
+    private void OnEnable()
+    {
+        PegHit?.AddListener(GameManager.game.TouchPeg);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isCurrentlyTouched = true;
         if (notHit)
         {
-            PegHit?.Invoke(type);   //Sends Message with color of peg that this was hit
+            PegHit?.Invoke(this);   //Sends Message with color of peg that this was hit
             notHit = false;
-            GameManager.game.TouchPeg(this);
             //flash color
             //flashSprite.enable(); ??? as a child to each peg prefab, can edit
         }

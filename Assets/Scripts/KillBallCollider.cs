@@ -12,7 +12,7 @@ public class KillBallCollider : MonoBehaviour
 
     private void Awake()
     {
-        ballDestroyed?.AddListener(Transform.FindFirstObjectByType<GameManager>().EndTurn);
+        ballDestroyed?.AddListener(GameManager.game.EndTurn);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
