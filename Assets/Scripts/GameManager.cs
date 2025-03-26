@@ -64,18 +64,18 @@ public class GameManager : MonoBehaviour
             }
             //pScore *= scoreMult;
             score += pScore;
-            scoreUI.UpdateScore(score);
-            StartCoroutine(clearPegs());
-            // Do other things
-            // NextTurn?.Invoke();
         }
+        scoreUI.UpdateScore(score);
+        // Do other things
+        // NextTurn?.Invoke();
+        StartCoroutine(clearPegs());
     }
 
     private IEnumerator clearPegs()
     {
         GameObject destroyTarget = touchedPegs[0].gameObject;
         touchedPegs.RemoveAt(0);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.12f);
         Destroy(destroyTarget);
         if (touchedPegs.Count == 0)
         {

@@ -177,4 +177,4 @@ MonoBehaviour:
   - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3.3
+  stuckTimer: 3
