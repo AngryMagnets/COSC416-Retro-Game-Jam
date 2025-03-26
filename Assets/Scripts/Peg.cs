@@ -14,16 +14,13 @@ public class Peg : MonoBehaviour
     [SerializeField] 
     private float stuckTimer;
 
-    private bool isCurrentlyTouched = false;
-
-    private void OnEnable()
+    private void Start()
     {
         PegHit?.AddListener(GameManager.game.TouchPeg);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        isCurrentlyTouched = true;
         if (notHit)
         {
             PegHit?.Invoke(this);   //Sends Message with color of peg that this was hit
@@ -31,44 +28,6 @@ public class Peg : MonoBehaviour
             //flash color
             //flashSprite.enable(); ??? as a child to each peg prefab, can edit
         }
-    }
-    // Could do this logic in an update function with conditionals but this also works
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        isCurrentlyTouched = true;
-        StartCoroutine(checkBallStuck());
-    }
-    private IEnumerator checkBallStuck()
-    {
-        if (isCurrentlyTouched)
-        {
-            yield return new WaitForSeconds(stuckTimer);
-            //Debug.Log("Unsticking");
-            
-            try
-            {
-                MeshRenderer mr = this.gameObject.GetComponent<MeshRenderer>();
-                PolygonCollider2D pc = this.GetComponent<PolygonCollider2D>(); pc.enabled = false;
-                if (pc != null)
-                {
-                    mr.enabled = false;
-                    pc.enabled = false;
-                }
-            }
-            catch (MissingComponentException)
-            {
-                SpriteRenderer sr = this.GetComponentInChildren<SpriteRenderer>();
-                CircleCollider2D cc = this.GetComponent<CircleCollider2D>();
-                sr.enabled = false;
-                cc.enabled = false;
-            }
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        isCurrentlyTouched = false;
-        StopAllCoroutines();
-        StopCoroutine(checkBallStuck()); // Extra redundancy cause Idk why this is kind of working
     }
     /// <summary>
     /// Method <c>GetColor</c> Returns peg color

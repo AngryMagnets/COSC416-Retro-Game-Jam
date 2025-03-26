@@ -10,7 +10,7 @@ public class KillBallCollider : MonoBehaviour
     [SerializeField] public UnityEvent<bool> ballDestroyed; //bool = ball bucket or not
     [SerializeField] private bool ballBucket = false;
 
-    private void OnEnable()
+    private void Start()
     {
         ballDestroyed?.AddListener(GameManager.game.EndTurn);
     }

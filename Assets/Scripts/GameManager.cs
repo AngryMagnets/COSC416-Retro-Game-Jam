@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public BallManager ballManager;
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private int[] pointValues = new int[4] {10,20,20,100 }; //0=blue, 1=orange, 2=green, 3=purple
 
     //public bool isShotActive = false; // Pretty sure I don't need this, basically an alias for !PlayerController.canShoot
     public int numPegs { get; private set; }
@@ -38,6 +39,20 @@ public class GameManager : MonoBehaviour
             Debug.Log("Landed In Bucket");
             ballManager.AddBall();
         }
+        CalculateScore();
+        // Do other things
+        // NextTurn?.Invoke();
+        clearPegsHelper(true);
+    }
+
+    public void BallStuck()
+    {
+        CalculateScore();
+        clearPegsHelper(false);
+    }
+
+    private void CalculateScore()
+    {
         foreach (Peg p in touchedPegs)
         {
             //Debug.Log(p.gameObject.name);
@@ -46,19 +61,19 @@ public class GameManager : MonoBehaviour
             switch (type)
             {
                 case 'b':
-                    pScore = 10;
+                    pScore = pointValues[0];
                     // Do blue peg
                     break;
                 case 'o':
-                    pScore = 20;
+                    pScore = pointValues[1];
                     // Do orange peg
                     break;
                 case 'g':
-                    pScore = 20;
+                    pScore = pointValues[2];
                     // Do green peg
                     break;
                 case 'p':
-                    pScore = 100;
+                    pScore = pointValues[3];
                     // Do purple peg
                     break;
             }
@@ -66,22 +81,28 @@ public class GameManager : MonoBehaviour
             score += pScore;
         }
         scoreUI.UpdateScore(score);
-        // Do other things
-        // NextTurn?.Invoke();
-        StartCoroutine(clearPegs());
     }
-
-    private IEnumerator clearPegs()
+    private void clearPegsHelper(bool endTurn)
     {
-        GameObject destroyTarget = touchedPegs[0].gameObject;
-        touchedPegs.RemoveAt(0);
-        yield return new WaitForSeconds(0.12f);
-        Destroy(destroyTarget);
-        if (touchedPegs.Count == 0)
-        {
-            playerController.canShoot = true;
-            yield break;
-        }
-        else { StartCoroutine(clearPegs()); }
+        StartCoroutine(clearPegs(endTurn));
     }
+    private IEnumerator clearPegs(bool endTurn)
+    {
+        while (touchedPegs.Count > 0)
+        {
+            GameObject destroyTarget = touchedPegs[0].gameObject;
+            Destroy(destroyTarget);
+            touchedPegs.RemoveAt(0);
+            yield return new WaitForSeconds(0.12f);
+        }
+        playerController.canShoot = endTurn;
+    }
+}
+
+public enum pegTypes
+{
+    blue,
+    orange,
+    green,
+    purple
 }
