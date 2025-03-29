@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class BallManager : MonoBehaviour
@@ -14,6 +15,8 @@ public class BallManager : MonoBehaviour
     TextMeshProUGUI ballText;
     [SerializeField]
     PlayerController player;
+    [SerializeField]
+    public UnityEvent OutOfBalls;
 
     [Header("Ball Spawning")]
     [SerializeField] 
@@ -37,6 +40,7 @@ public class BallManager : MonoBehaviour
     {
         numBalls = 0;
         ballList = new List<GameObject>(startingBalls);
+        OutOfBalls = new UnityEvent();
     }
     void Awake()
     {
@@ -62,6 +66,11 @@ public class BallManager : MonoBehaviour
             GameObject ball = ballList[0];
             ballList.RemoveAt(0);
             StartCoroutine(DeleteBall(ball));
+        }
+
+        if (numBalls <= 0)
+        {
+            OutOfBalls?.Invoke();
         }
     }
 
