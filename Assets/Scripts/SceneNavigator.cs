@@ -3,6 +3,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// So long as this exists in as an object in every scene it *should* work just fine
+/// </summary>
 public class SceneNavigator : MonoBehaviour
 {
     [SerializeReference]
