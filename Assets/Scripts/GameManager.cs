@@ -4,27 +4,40 @@ using System.Collections;
 using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
-    public static GameManager game; protected void Awake () { game = GetComponent<GameManager> (); }
+    [Header("Events")]
     /// <summary>
     /// Set a listener for PlayerController.NextTurn()
     /// </summary>
     [SerializeField] public UnityEvent NextTurn;
+    [SerializeField] public UnityEvent OrangePegsCleared;
+
+    [Header ("In Scene References")]
+    public static GameManager game; protected void Awake() { game = GetComponent<GameManager>(); }
     [SerializeField] public BallManager ballManager;
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private int[] pointValues = new int[4] {10,20,20,100 }; //0=blue, 1=orange, 2=green, 3=purple
+    [SerializeField] private LayoutHandler layoutHandler;
 
+    [Header ("Managed Variables")] 
+    [SerializeField] private int[] pointValues = new int[4] { 10, 20, 20, 100 }; //0=blue, 1=orange, 2=green, 3=purple
     //public bool isShotActive = false; // Pretty sure I don't need this, basically an alias for !PlayerController.canShoot
     public int numPegs { get; private set; }
     public int score;
+    private int numOrangePegs;
     private List<Peg> touchedPegs;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (playerController == null)
-        { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
+        NextTurn = new UnityEvent();
+        OrangePegsCleared = new UnityEvent();
+
+        if (playerController == null) { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
+        
         touchedPegs = new List<Peg>(10);
+        numOrangePegs = layoutHandler.orangeCount;
+        
+        NextTurn?.AddListener(layoutHandler.UpdatePurplePeg);
+        OrangePegsCleared?.AddListener(SceneNavigator.Navigator.LoadNextScene);
     }
 
     public void TouchPeg(Peg peg)
@@ -40,9 +53,10 @@ public class GameManager : MonoBehaviour
             ballManager.AddBall();
         }
         CalculateScore();
-        // Do other things
-        // NextTurn?.Invoke();
+        
         clearPegsHelper(true);
+
+
     }
 
     public void BallStuck()
@@ -66,7 +80,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case 'o':
                     pScore = pointValues[1];
-                    // Do orange peg
+                    orangePegTouched();
                     break;
                 case 'g':
                     pScore = pointValues[2];
@@ -82,6 +96,7 @@ public class GameManager : MonoBehaviour
         }
         scoreUI.UpdateScore(score);
     }
+    private void orangePegTouched() { numOrangePegs--; }
     private void clearPegsHelper(bool endTurn)
     {
         StartCoroutine(clearPegs(endTurn));
