@@ -68,12 +68,11 @@ public class BallManager : MonoBehaviour
             StartCoroutine(DeleteBall(ball));
         }
     }
-    public void CheckOutOfBalls ()
+    public bool CheckOutOfBalls ()
     {
-        if (numBalls <= 0)
-        {
-            OutOfBalls?.Invoke();
-        }
+        bool noBallsRemaining = numBalls <= 0;
+        if (noBallsRemaining) { OutOfBalls?.Invoke(); }
+        return noBallsRemaining;
     }
 
     private IEnumerator DeleteBall (GameObject ball)

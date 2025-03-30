@@ -194,9 +194,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OrangePegsCleared:
+    m_PersistentCalls:
+      m_Calls: []
   ballManager: {fileID: 1356009497582838977}
   scoreUI: {fileID: 6944399851331626439}
   playerController: {fileID: 0}
+  layoutHandler: {fileID: 8773604064797797421}
   pointValues: 0a000000140000001400000064000000
   score: 0
 --- !u!114 &8639783033533023355
@@ -1705,34 +1709,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3163520822624507891, guid: 7cc2a35d9ccbc7a4d87efd861d1580a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1984119907947328951}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cc2a35d9ccbc7a4d87efd861d1580a0, type: 3}
 --- !u!4 &2823062934312372251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5852351436930217304, guid: 7cc2a35d9ccbc7a4d87efd861d1580a0, type: 3}
   m_PrefabInstance: {fileID: 8510169798883818819}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6772612547795217072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3163520822624507891, guid: 7cc2a35d9ccbc7a4d87efd861d1580a0, type: 3}
-  m_PrefabInstance: {fileID: 8510169798883818819}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1984119907947328951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6772612547795217072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 723195ffa3f493b47841a4fdc8b6eacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftPosition: -3.3
-  rightPosition: 3.3
-  duration: 1
-  movementCurve: 17

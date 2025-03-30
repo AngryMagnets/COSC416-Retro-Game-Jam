@@ -41,6 +41,12 @@ public class SceneNavigator : MonoBehaviour
     {
         HandleErrorOnLoad(CurrentScene.buildIndex + 1);
     }
+    /// <summary>
+    /// Sam program this pls
+    /// </summary>
+    public void LoadNewPegLayout ()
+    {
+    }
     public void LoadPrevScene()
     {
         HandleErrorOnLoad(CurrentScene.buildIndex - 1);

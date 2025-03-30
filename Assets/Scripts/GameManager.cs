@@ -110,7 +110,10 @@ public class GameManager : MonoBehaviour
             touchedPegs.RemoveAt(0);
             yield return new WaitForSeconds(0.12f);
         }
-        playerController.canShoot = endTurn;
+        if (endTurn)
+        {
+            playerController.canShoot = !ballManager.CheckOutOfBalls();
+        }
     }
 }
 
