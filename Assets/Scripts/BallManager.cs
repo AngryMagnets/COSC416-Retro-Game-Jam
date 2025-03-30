@@ -67,7 +67,9 @@ public class BallManager : MonoBehaviour
             ballList.RemoveAt(0);
             StartCoroutine(DeleteBall(ball));
         }
-
+    }
+    public void CheckOutOfBalls ()
+    {
         if (numBalls <= 0)
         {
             OutOfBalls?.Invoke();

@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerController == null)
         { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
-        touchedPegs = new List<Peg>();
+        touchedPegs = new List<Peg>(10);
     }
 
     public void TouchPeg(Peg peg)
