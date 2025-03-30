@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PauseSettingsTest.unity
     guid: 7c484ffcfc7b66e45ba3498fe8d3bfe7
+  - enabled: 1
+    path: Assets/Scenes/UI_Scene_dev.unity
+    guid: 064251df42b1efb4dbd5a7a6acdaa28e
+  - enabled: 1
+    path: Assets/Scenes/PegLayoutBuilding.unity
+    guid: bf9d90e8dc50e5443a15128844ae29da
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
