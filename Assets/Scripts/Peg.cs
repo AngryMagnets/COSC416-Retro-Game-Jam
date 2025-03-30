@@ -19,6 +19,7 @@ public class Peg : MonoBehaviour
     private void Start()
     {
         PegHit?.AddListener(GameManager.game.TouchPeg);
+        UpdateColor(type);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
