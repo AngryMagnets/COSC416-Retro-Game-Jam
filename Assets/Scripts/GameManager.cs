@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         numOrangePegs = layoutHandler.orangeCount;
         
         NextTurn?.AddListener(layoutHandler.UpdatePurplePeg);
-        OrangePegsCleared?.AddListener(SceneNavigator.Navigator.LoadNextScene);
+        OrangePegsCleared?.AddListener(SceneNavigator.Navigator.LoadNewPegLayout);
     }
 
     public void TouchPeg(Peg peg)
