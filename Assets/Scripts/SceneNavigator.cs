@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// So long as this exists in as an object in every scene it *should* work just fine
+/// Due to an alternate plan of how peg layouts will be placed swapped between, additional functionality needs to bed added.
+/// Additionally, Certain methods can be renamed to navigate to a certain scene rather than previous or last, if deemed necessary
 /// </summary>
 public class SceneNavigator : MonoBehaviour
 {
@@ -12,7 +14,19 @@ public class SceneNavigator : MonoBehaviour
     public static SceneNavigator Navigator;
     
     [SerializeField]
-    public Scene CurrentScene { get; private set; }
+    public static Scene CurrentScene { get; private set; }
+    [SerializeField]
+    private static int numLevels;
+    private static int levelsCompleted, currentIdx;
+    
+    /// <summary>
+    /// A list for prefabs of a peg layout and their associated background to be stored in.
+    /// <code LoadNewPegLayout/> will replace the currentLayout with one from this list
+    /// </summary>
+    [SerializeField]
+    private List<GameObject> layouts = new List<GameObject>();
+    private GameObject currentLayout = null;
+
 
     private void Start() { CurrentScene = SceneManager.GetActiveScene(); }
     protected void Awake() { Navigator = GetComponent<SceneNavigator>(); }
@@ -42,10 +56,16 @@ public class SceneNavigator : MonoBehaviour
         HandleErrorOnLoad(CurrentScene.buildIndex + 1);
     }
     /// <summary>
-    /// Sam program this pls
+    /// Loads a peg layout from the given prefabs
     /// </summary>
     public void LoadNewPegLayout ()
     {
+        int idx;
+        do { idx = Random.Range(0, layouts.Count); } while (currentIdx == idx);
+        levelsCompleted++;
+        
+        Destroy(currentLayout);
+        currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
     }
     public void LoadPrevScene()
     {
@@ -53,6 +73,7 @@ public class SceneNavigator : MonoBehaviour
     }
     public void LoadMainMenu()
     {
+        levelsCompleted = 0;
         HandleErrorOnLoad(0);
     }
 
