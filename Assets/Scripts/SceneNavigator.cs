@@ -27,14 +27,12 @@ public class SceneNavigator : MonoBehaviour
         catch (System.IndexOutOfRangeException)
         {
             Debug.LogError($"Prev scene: {sceneId} does not exist in build profile");
+            QuitGame();
         }
         catch (System.Exception e)
         {
             Debug.LogError($"{e.GetType().ToString()} occured while loading scene {sceneId}");
             Debug.LogException(e);
-        }
-        finally
-        {
             QuitGame();
         }
     }
@@ -46,6 +44,10 @@ public class SceneNavigator : MonoBehaviour
     public void LoadPrevScene()
     {
         HandleErrorOnLoad(CurrentScene.buildIndex - 1);
+    }
+    public void LoadMainMenu()
+    {
+        HandleErrorOnLoad(0);
     }
 
     public void LoadScene(int sceneId)
