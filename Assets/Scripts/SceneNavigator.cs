@@ -90,7 +90,7 @@ public class SceneNavigator : MonoBehaviour
     {
         for (int i = 0; i < layouts.Count; i++)
         {
-            layoutsNotVisited[i] = i;
+            layoutsNotVisited.Add(i);
         }
     }
     public void LoadPrevScene()
