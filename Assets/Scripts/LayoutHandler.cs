@@ -15,6 +15,7 @@ public class LayoutHandler : MonoBehaviour
     void OnEnable()
     {
         pegs = GetComponentsInChildren<Peg>();
+        Debug.Log(pegs.Length);
         int[] initialColorChanges = new int[orangeCount+greenCount+purpleCount];    //Gets a set of indexes to set as colored pegs
         for (int i = 0; i<initialColorChanges.Length; i++)
         {
