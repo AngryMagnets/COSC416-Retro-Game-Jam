@@ -4,15 +4,8 @@ using System.Collections;
 using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
-    [Header("Events")]
-    /// <summary>
-    /// Set a listener for PlayerController.NextTurn()
-    /// </summary>
-    [SerializeField] public UnityEvent NextTurn;
-    [SerializeField] public UnityEvent OrangePegsCleared;
-
     [Header ("In Scene References")]
-    public static GameManager game; protected void Awake() { game = GetComponent<GameManager>(); }
+    public static GameManager game;
     [SerializeField] public BallManager ballManager;
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private PlayerController playerController;
@@ -26,19 +19,28 @@ public class GameManager : MonoBehaviour
     private int numOrangePegs;
     private List<Peg> touchedPegs;
 
+    [Header("Events")]
+    /// <summary>
+    /// Set a listener for PlayerController.NextTurn()
+    /// </summary>
+    [SerializeField] public UnityEvent NextTurn;
+    [SerializeField] public UnityEvent OrangePegsCleared;
+
     void Start()
     {
         NextTurn = new UnityEvent();
         OrangePegsCleared = new UnityEvent();
+        SceneNavigator.Navigator.LoadFirstPegLayout();
 
         if (playerController == null) { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
         
         touchedPegs = new List<Peg>(10);
         numOrangePegs = layoutHandler.orangeCount;
-        
+
         NextTurn?.AddListener(layoutHandler.UpdatePurplePeg);
         OrangePegsCleared?.AddListener(SceneNavigator.Navigator.LoadNewPegLayout);
     }
+    protected void Awake() { game = GetComponent<GameManager>(); }
 
     public void TouchPeg(Peg peg)
     {
@@ -114,6 +116,11 @@ public class GameManager : MonoBehaviour
         {
             playerController.canShoot = !ballManager.CheckOutOfBalls();
         }
+    }
+
+    public void UpdateLayoutHandler (LayoutHandler lh)
+    {
+        this.layoutHandler = lh;
     }
 }
 

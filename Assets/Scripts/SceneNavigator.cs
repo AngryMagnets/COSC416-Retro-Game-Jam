@@ -66,6 +66,15 @@ public class SceneNavigator : MonoBehaviour
         
         Destroy(currentLayout);
         currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
+        GameManager.game.UpdateLayoutHandler(currentLayout.GetComponent<LayoutHandler>());
+    }
+    public void LoadFirstPegLayout()
+    {
+        int idx;
+        do { idx = Random.Range(0, layouts.Count); } while (currentIdx == idx);
+        
+        currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
+        GameManager.game.UpdateLayoutHandler(currentLayout.GetComponent<LayoutHandler>());
     }
     public void LoadPrevScene()
     {

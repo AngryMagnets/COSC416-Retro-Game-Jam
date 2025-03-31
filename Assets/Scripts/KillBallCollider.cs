@@ -19,7 +19,7 @@ public class KillBallCollider : MonoBehaviour
         if (collision.CompareTag("Ball"))
         {
             ballDestroyed?.Invoke(ballBucket);
-            Destroy(collision.gameObject);
+            GameObject.Destroy(collision.gameObject);
         }
     }
 }
