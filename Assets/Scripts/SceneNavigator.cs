@@ -81,7 +81,7 @@ public class SceneNavigator : MonoBehaviour
         Debug.Log($"Loading Layout {idx}");
         return idx;
     }
-    private void loadLayout (int  layoutIndex)
+    private void loadLayout (int idx)
     {
         currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
         GameManager.game.UpdateLayoutHandler(currentLayout.GetComponent<LayoutHandler>());
