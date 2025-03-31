@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         NextTurn = new UnityEvent();
         OrangePegsCleared = new UnityEvent();
-        SceneNavigator.Navigator.LoadFirstPegLayout();
+        SceneNavigator.Navigator.LoadNewPegLayout();
 
         if (playerController == null) { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
         

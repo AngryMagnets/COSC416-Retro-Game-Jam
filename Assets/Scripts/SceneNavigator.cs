@@ -29,7 +29,7 @@ public class SceneNavigator : MonoBehaviour
     private List<int> layoutsNotVisited;
 
     private void Start() 
-    { CurrentScene = SceneManager.GetActiveScene(); layoutsNotVisited = new List<int>(); }
+    { CurrentScene = SceneManager.GetActiveScene(); layoutsNotVisited = new List<int>(); InitLayoutTracker(); }
     protected void Awake() { Navigator = GetComponent<SceneNavigator>(); }
 
     private void HandleErrorOnLoad(int sceneId)
@@ -62,15 +62,10 @@ public class SceneNavigator : MonoBehaviour
     public void LoadNewPegLayout ()
     {
         int idx = generateIndex();
-        Destroy(currentLayout);
+        if (currentLayout) Destroy(currentLayout);
         loadLayout(idx);
     }
-    public void LoadFirstPegLayout()
-    {
-        InitLayoutTracker();
-        int idx = generateIndex();
-        loadLayout(idx);
-    }
+
     private int generateIndex ()
     {
         int idx;
