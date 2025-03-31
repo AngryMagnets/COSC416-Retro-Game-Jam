@@ -11,10 +11,8 @@ public class Peg : MonoBehaviour
 
     // Should probably make the colours array static so that this isn't taking up memory for every single peg
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
+    [SerializeField] private Color[] highlights = new Color[4];
     private bool notHit = true;
-
-    [SerializeField] 
-    private float stuckTimer;
 
     private void Start()
     {
@@ -28,8 +26,7 @@ public class Peg : MonoBehaviour
         {
             PegHit?.Invoke(this);   //Sends Message with color of peg that this was hit
             notHit = false;
-            //flash color
-            //flashSprite.enable(); ??? as a child to each peg prefab, can edit
+            changeColor(highlights[charToColor(type)]);
         }
     }
     /// <summary>
@@ -50,33 +47,36 @@ public class Peg : MonoBehaviour
     public void UpdateColor(char color)
     {
         type = color;
-        int i;
+        int i = charToColor(type);
+
+        changeColor(colors[i]);
+    }
+    private int charToColor(char c)
+    {
         switch (type)
         {
             case 'b':
-                i = 0;
-                break;
+                return 0;
             case 'o':
-                i = 1;
-                break;
+                return 1;
             case 'g':
-                i = 2;
-                break;
+                return 2;
             case 'p':
-                i = 3;
-                break;
+                return 3;
             default:
-                i = 0;
-                break;
+                return 0;
         }
-
+    }
+    private void changeColor (Color c)
+    {
         SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
         if (renderer != null)
         {
-            renderer.color = colors[i];
-        } else if (TryGetComponent<MeshRenderer>(out MeshRenderer m))
+            renderer.color = c;
+        }
+        else if (TryGetComponent<MeshRenderer>(out MeshRenderer m))
         {
-            m.material.color = colors[i];
+            m.material.color = c;
         }
     }
 }
