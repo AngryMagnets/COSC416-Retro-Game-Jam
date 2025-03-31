@@ -7,7 +7,9 @@ public class Peg : MonoBehaviour
 {
     public UnityEvent<Peg> PegHit; //Message with color of peg being hit
 
-    private char type = 'b';  //'b' blue, 'o' orange, 'g' green, 'p' purple 
+    private char type = 'b';  //'b' blue, 'o' orange, 'g' green, 'p' purple
+
+    // Should probably make the colours array static so that this isn't taking up memory for every single peg
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
     private bool notHit = true;
 
@@ -17,6 +19,7 @@ public class Peg : MonoBehaviour
     private void Start()
     {
         PegHit?.AddListener(GameManager.game.TouchPeg);
+        UpdateColor(type);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

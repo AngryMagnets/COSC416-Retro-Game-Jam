@@ -15,6 +15,7 @@ public class LayoutHandler : MonoBehaviour
     void OnEnable()
     {
         pegs = GetComponentsInChildren<Peg>();
+        Debug.Log(pegs.Length);
         int[] initialColorChanges = new int[orangeCount+greenCount+purpleCount];    //Gets a set of indexes to set as colored pegs
         for (int i = 0; i<initialColorChanges.Length; i++)
         {
@@ -57,7 +58,7 @@ public class LayoutHandler : MonoBehaviour
     /// </summary>
     public void UpdatePurplePeg()
     {
-        if (purplePeg!=null)
+        if (purplePeg != null)
         {
             purplePeg.UpdateColor('b');
         }
@@ -68,6 +69,24 @@ public class LayoutHandler : MonoBehaviour
         } while (!checkForBluePeg(i));
         pegs[i].UpdateColor('p');
     }
+
+    /// <summary>
+    /// Method <c>UpdatePurplePeg</c> Makes the purple peg blue (if it exists) and sets a new purple peg (of the blue pegs).
+    /// Parameter: <paramref name="eventCompatability"/> ensures that this can be called from the boolean event of the ball being destroyed
+    /// </summary>
+    //public void UpdatePurplePeg(bool eventCompatability)
+    //{
+    //    if (purplePeg!=null)
+    //    {
+    //        purplePeg.UpdateColor('b');
+    //    }
+    //    int i;
+    //    do
+    //    {
+    //        i = Random.Range(0, pegs.Length);
+    //    } while (!checkForBluePeg(i));
+    //    pegs[i].UpdateColor('p');
+    //}
 
     /// <summary>
     /// Method <c>checkForBluePeg</c> Ensures index in list of pegs isn't null and is blue

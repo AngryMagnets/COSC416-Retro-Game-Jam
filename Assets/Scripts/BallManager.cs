@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class BallManager : MonoBehaviour
@@ -14,13 +15,15 @@ public class BallManager : MonoBehaviour
     TextMeshProUGUI ballText;
     [SerializeField]
     PlayerController player;
+    [SerializeField]
+    public UnityEvent OutOfBalls;
 
     [Header("Ball Spawning")]
     [SerializeField] 
     private Transform spawnPoint;
     [SerializeField] 
     private GameObject ball;
-    [SerializeField] 
+    [SerializeField]
     private int startingBalls;
    
     [Header("Removal Animation")]
@@ -30,18 +33,20 @@ public class BallManager : MonoBehaviour
     private float duration;
 
 
-    private int numBalls;
+    public int numBalls { get; private set; }
     private List<GameObject> ballList;
 
     private void Start()
     {
         numBalls = 0;
         ballList = new List<GameObject>(startingBalls);
+        OutOfBalls = new UnityEvent();
     }
     void Awake()
     {
         player.canShoot = false;
-        StartCoroutine(AddBalls(startingBalls));
+        //StartCoroutine(AddBalls(startingBalls));
+        StartCoroutine(DevAddBalls(startingBalls));
     }
 
     public void AddBall ()
@@ -51,18 +56,35 @@ public class BallManager : MonoBehaviour
         numBalls++;
         updateText();
     }
+    public void AddBall(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
+            ballList.Add(spawnBall);
+            numBalls++;
+            updateText();
+        }
+    }
 
     public void RemoveBall()
     {
         if (player.canShoot)
         {
-            ballList[0].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
+            int idx = 0;
+            ballList[idx].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
             numBalls--;
             updateText();
-            GameObject ball = ballList[0];
-            ballList.RemoveAt(0);
+            GameObject ball = ballList[idx];
+            ballList.RemoveAt(idx);
             StartCoroutine(DeleteBall(ball));
         }
+    }
+    public bool CheckOutOfBalls ()
+    {
+        bool noBallsRemaining = numBalls <= 0;
+        if (noBallsRemaining) { OutOfBalls?.Invoke(); }
+        return noBallsRemaining;
     }
 
     private IEnumerator DeleteBall (GameObject ball)
@@ -71,12 +93,37 @@ public class BallManager : MonoBehaviour
         Destroy(ball);
     }
 
+    public int BallsUsed ()
+    {
+        return startingBalls - numBalls;
+    }
+
+    public void AddBallsHelper (int ballCount) { StartCoroutine(AddBalls(ballCount)); }
     private IEnumerator AddBalls (int ballCount)
     {
         player.canShoot = false;
         if (ballCount > 0)
         {
             yield return new WaitForSeconds(0.3f);
+            GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
+            ballList.Add(spawnBall);
+            numBalls++;
+            updateText();
+            StartCoroutine(AddBalls(ballCount - 1));
+        }
+        else
+        {
+            //Debug.Log("Setting canShoot True");
+            player.canShoot = true;
+        }
+        yield return null;
+    }
+    private IEnumerator DevAddBalls(int ballCount)
+    {
+        player.canShoot = false;
+        if (ballCount > 0)
+        {
+            yield return new WaitForEndOfFrame();
             GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
             ballList.Add(spawnBall);
             numBalls++;
