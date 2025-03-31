@@ -62,8 +62,9 @@ public class SceneNavigator : MonoBehaviour
     {
         int idx;
         do { idx = Random.Range(0, layouts.Count); } while (currentIdx == idx);
+        Debug.Log($"Generated idx:{idx}");
         levelsCompleted++;
-        
+        Debug.Log($"Loading Layout {idx}");
         Destroy(currentLayout);
         currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
         GameManager.game.UpdateLayoutHandler(currentLayout.GetComponent<LayoutHandler>());

@@ -45,7 +45,8 @@ public class BallManager : MonoBehaviour
     void Awake()
     {
         player.canShoot = false;
-        StartCoroutine(AddBalls(startingBalls));
+        //StartCoroutine(AddBalls(startingBalls));
+        StartCoroutine(DevAddBalls(startingBalls));
     }
 
     public void AddBall ()
@@ -55,16 +56,27 @@ public class BallManager : MonoBehaviour
         numBalls++;
         updateText();
     }
+    public void AddBall(int n)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
+            ballList.Add(spawnBall);
+            numBalls++;
+            updateText();
+        }
+    }
 
     public void RemoveBall()
     {
         if (player.canShoot)
         {
-            ballList[0].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
+            int idx = ballList.Count - 1;
+            ballList[idx].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
             numBalls--;
             updateText();
-            GameObject ball = ballList[0];
-            ballList.RemoveAt(0);
+            GameObject ball = ballList[idx];
+            ballList.RemoveAt(idx);
             StartCoroutine(DeleteBall(ball));
         }
     }
@@ -87,6 +99,25 @@ public class BallManager : MonoBehaviour
         if (ballCount > 0)
         {
             yield return new WaitForSeconds(0.3f);
+            GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
+            ballList.Add(spawnBall);
+            numBalls++;
+            updateText();
+            StartCoroutine(AddBalls(ballCount - 1));
+        }
+        else
+        {
+            //Debug.Log("Setting canShoot True");
+            player.canShoot = true;
+        }
+        yield return null;
+    }
+    private IEnumerator DevAddBalls(int ballCount)
+    {
+        player.canShoot = false;
+        if (ballCount > 0)
+        {
+            yield return new WaitForSeconds(0.01f);
             GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
             ballList.Add(spawnBall);
             numBalls++;

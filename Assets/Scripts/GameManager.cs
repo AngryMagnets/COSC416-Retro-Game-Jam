@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
         if (playerController == null) { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
         
         touchedPegs = new List<Peg>(10);
-        numOrangePegs = layoutHandler.orangeCount;
 
         NextTurn?.AddListener(layoutHandler.UpdatePurplePeg);
         OrangePegsCleared?.AddListener(SceneNavigator.Navigator.LoadNewPegLayout);
@@ -57,8 +56,6 @@ public class GameManager : MonoBehaviour
         CalculateScore();
         
         clearPegsHelper(true);
-
-
     }
 
     public void BallStuck()
@@ -98,7 +95,7 @@ public class GameManager : MonoBehaviour
         }
         scoreUI.UpdateScore(score);
     }
-    private void orangePegTouched() { numOrangePegs--; }
+    private void orangePegTouched() { numOrangePegs--; Debug.Log($"num orange pegs {numOrangePegs}"); }
     private void clearPegsHelper(bool endTurn)
     {
         StartCoroutine(clearPegs(endTurn));
@@ -114,6 +111,10 @@ public class GameManager : MonoBehaviour
         }
         if (endTurn)
         {
+            if (numOrangePegs <= 0)
+            {
+                SceneNavigator.Navigator.LoadNewPegLayout();
+            }
             playerController.canShoot = !ballManager.CheckOutOfBalls();
         }
     }
@@ -121,6 +122,8 @@ public class GameManager : MonoBehaviour
     public void UpdateLayoutHandler (LayoutHandler lh)
     {
         this.layoutHandler = lh;
+        numOrangePegs = layoutHandler.orangeCount;
+        Debug.Log($"num orange pegs {numOrangePegs}");
     }
 }
 
