@@ -26,11 +26,10 @@ public class SceneNavigator : MonoBehaviour
     [SerializeField]
     private List<GameObject> layouts = new List<GameObject>();
     private GameObject currentLayout = null;
-    private List<int> layoutsNotVisited = new List<int>();
-
+    private List<int> layoutsNotVisited;
 
     private void Start() 
-    { CurrentScene = SceneManager.GetActiveScene(); layoutsNotVisited = new List<int>(layouts.Count); }
+    { CurrentScene = SceneManager.GetActiveScene(); layoutsNotVisited = new List<int>(); }
     protected void Awake() { Navigator = GetComponent<SceneNavigator>(); }
 
     private void HandleErrorOnLoad(int sceneId)
@@ -77,7 +76,7 @@ public class SceneNavigator : MonoBehaviour
         int idx;
         do { idx = layoutsNotVisited[Random.Range(0, layoutsNotVisited.Count)]; } while (currentIdx == idx);
         currentIdx = idx;
-        layoutsNotVisited.RemoveAt(currentIdx);
+        layoutsNotVisited.Remove(currentIdx);
         Debug.Log($"Loading Layout {idx}");
         return idx;
     }
