@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93b781ba3eddba478895409f42f729e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layouts: []
 --- !u!1 &1146403836
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 4289758614553741237, guid: be2bc16d020453143b017642c8edaf8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4933675153257915773, guid: be2bc16d020453143b017642c8edaf8f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -626,6 +631,14 @@ PrefabInstance:
     - target: {fileID: 4933675153257915773, guid: be2bc16d020453143b017642c8edaf8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5702520873701049370, guid: be2bc16d020453143b017642c8edaf8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419741728440370665, guid: be2bc16d020453143b017642c8edaf8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8752110893773131973, guid: be2bc16d020453143b017642c8edaf8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
