@@ -54,7 +54,7 @@ MonoBehaviour:
   minAngle: -90
   maxAngle: 90
   scrollSpeed: 0.5
-  shootForce: -10
+  shootForce: -6
 --- !u!1 &5760841375957763755
 GameObject:
   m_ObjectHideFlags: 0
