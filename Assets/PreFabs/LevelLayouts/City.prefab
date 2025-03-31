@@ -191,11 +191,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &1354140863110540274
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,11 +386,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &1505198338264617822
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,11 +581,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &1628715969690037681
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,11 +776,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &2085122770328493970
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,11 +971,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &2276215163041081785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,11 +1253,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &3198058161477477718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,11 +1448,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &3300315924618742770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,11 +1643,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &3357575645310988715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,11 +1838,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &3361361061310563643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,11 +2033,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &3834005672510937442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,7 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8281b8f94920df34b8ce1439c6b512ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orangeCount: 1
+  orangeCount: 25
   greenCount: 2
   purpleCount: 1
 --- !u!1 &4691202806541164001
@@ -2386,11 +2376,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &4927208782401227380
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,11 +2571,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &5118806628964851305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,11 +2766,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &5417252234043156300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,11 +2961,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &5551325655795808900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,11 +3156,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &5829680649008184523
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,11 +3351,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &6040852830294478755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,11 +3546,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &6137170187552517430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,11 +3741,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &6304378507095884477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,11 +3936,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &6711413682063090621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,11 +4131,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &7296147517825014476
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,11 +4326,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &7480331474363842117
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,11 +4521,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &8984915973761545487
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,11 +4716,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1 &9045083604598103145
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,11 +4911,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   colors:
-  - {r: 0.023529412, g: 0.21176471, b: 0.56078434, a: 1}
-  - {r: 1, g: 0.49803922, b: 0, a: 1}
+  - {r: 0, g: 0.5176471, b: 1, a: 1}
+  - {r: 1, g: 0.49803925, b: 0, a: 1}
   - {r: 0, g: 0.6666667, b: 0.03529412, a: 1}
   - {r: 0.5372549, g: 0, b: 0.6, a: 1}
-  stuckTimer: 3
 --- !u!1001 &168863855384303974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5319,6 +5295,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4534365801234420814}
     m_Modifications:
+    - target: {fileID: 1484917210386156591, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.49803925
+      objectReference: {fileID: 0}
     - target: {fileID: 3405303054809995069, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
       value: 0.45
@@ -8222,6 +8202,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4534365801234420814}
     m_Modifications:
+    - target: {fileID: 1484917210386156591, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.49803925
+      objectReference: {fileID: 0}
     - target: {fileID: 3405303054809995069, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
       value: 0.45
@@ -8893,6 +8877,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4534365801234420814}
     m_Modifications:
+    - target: {fileID: 1484917210386156591, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.49803925
+      objectReference: {fileID: 0}
     - target: {fileID: 3405303054809995069, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
       value: 0.35
@@ -9820,6 +9808,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4534365801234420814}
     m_Modifications:
+    - target: {fileID: 1484917210386156591, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
+      propertyPath: colors.Array.data[1].g
+      value: 0.49803925
+      objectReference: {fileID: 0}
     - target: {fileID: 3405303054809995069, guid: 21d7f16407164fb4694836afde1ba4b1, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[10].x
       value: 0.45

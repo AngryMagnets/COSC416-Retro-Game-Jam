@@ -13,9 +13,6 @@ public class Peg : MonoBehaviour
     [SerializeField] private Color[] colors = new Color[4]; //Blue, orange, green, and purple colors
     private bool notHit = true;
 
-    [SerializeField] 
-    private float stuckTimer;
-
     private void Start()
     {
         PegHit?.AddListener(GameManager.game.TouchPeg);
