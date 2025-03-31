@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
             if (numOrangePegs <= 0)
             {
                 SceneNavigator.Navigator.LoadNewPegLayout();
+                ballManager.AddBallsHelper(ballManager.BallsUsed());
             }
             playerController.canShoot = !ballManager.CheckOutOfBalls();
         }

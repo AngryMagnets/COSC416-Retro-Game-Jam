@@ -23,7 +23,7 @@ public class BallManager : MonoBehaviour
     private Transform spawnPoint;
     [SerializeField] 
     private GameObject ball;
-    [SerializeField] 
+    [SerializeField]
     private int startingBalls;
    
     [Header("Removal Animation")]
@@ -33,7 +33,7 @@ public class BallManager : MonoBehaviour
     private float duration;
 
 
-    private int numBalls;
+    public int numBalls { get; private set; }
     private List<GameObject> ballList;
 
     private void Start()
@@ -71,7 +71,7 @@ public class BallManager : MonoBehaviour
     {
         if (player.canShoot)
         {
-            int idx = ballList.Count - 1;
+            int idx = 0;
             ballList[idx].transform.DOLocalMoveY(-10, duration).SetEase(AnimationCurve);
             numBalls--;
             updateText();
@@ -93,6 +93,12 @@ public class BallManager : MonoBehaviour
         Destroy(ball);
     }
 
+    public int BallsUsed ()
+    {
+        return startingBalls - numBalls;
+    }
+
+    public void AddBallsHelper (int ballCount) { StartCoroutine(AddBalls(ballCount)); }
     private IEnumerator AddBalls (int ballCount)
     {
         player.canShoot = false;
@@ -117,7 +123,7 @@ public class BallManager : MonoBehaviour
         player.canShoot = false;
         if (ballCount > 0)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForEndOfFrame();
             GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
             ballList.Add(spawnBall);
             numBalls++;

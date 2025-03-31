@@ -262,6 +262,9 @@ MonoBehaviour:
   layouts:
   - {fileID: 8428773003607385593, guid: 99d6869dd371ab945a498d10942a7afa, type: 3}
   - {fileID: 3834005672510937442, guid: d15d5a4a3bacd0d4597014ed06683069, type: 3}
+  - {fileID: 6648892615531834628, guid: 116781b424e204b47bc19978c2b60ed9, type: 3}
+  - {fileID: 5633454835894214528, guid: e3f5e9d1e16d4894faefb465a8980e37, type: 3}
+  - {fileID: 8080709189512883207, guid: ba675cdba8d3497458032a93aa0a397a, type: 3}
 --- !u!1 &2647107010323116701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,7 +1350,7 @@ PrefabInstance:
       objectReference: {fileID: 3918536353999276298}
     - target: {fileID: 4025710304993326232, guid: 6e476990f216dc545932330c375862cf, type: 3}
       propertyPath: shootForce
-      value: -4.5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4025710304993326232, guid: 6e476990f216dc545932330c375862cf, type: 3}
       propertyPath: inputManager

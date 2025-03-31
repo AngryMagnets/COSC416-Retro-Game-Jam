@@ -17,7 +17,7 @@ public class SceneNavigator : MonoBehaviour
     public static Scene CurrentScene { get; private set; }
     [SerializeField]
     private static int numLevels;
-    private static int levelsCompleted, currentIdx;
+    private static int levelsCompleted, currentIdx = -1;
     
     /// <summary>
     /// A list for prefabs of a peg layout and their associated background to be stored in.
@@ -26,9 +26,11 @@ public class SceneNavigator : MonoBehaviour
     [SerializeField]
     private List<GameObject> layouts = new List<GameObject>();
     private GameObject currentLayout = null;
+    private List<int> layoutsNotVisited = new List<int>();
 
 
-    private void Start() { CurrentScene = SceneManager.GetActiveScene(); }
+    private void Start() 
+    { CurrentScene = SceneManager.GetActiveScene(); layoutsNotVisited = new List<int>(layouts.Count); }
     protected void Awake() { Navigator = GetComponent<SceneNavigator>(); }
 
     private void HandleErrorOnLoad(int sceneId)
@@ -60,22 +62,36 @@ public class SceneNavigator : MonoBehaviour
     /// </summary>
     public void LoadNewPegLayout ()
     {
-        int idx;
-        do { idx = Random.Range(0, layouts.Count); } while (currentIdx == idx);
-        Debug.Log($"Generated idx:{idx}");
-        levelsCompleted++;
-        Debug.Log($"Loading Layout {idx}");
+        int idx = generateIndex();
         Destroy(currentLayout);
-        currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
-        GameManager.game.UpdateLayoutHandler(currentLayout.GetComponent<LayoutHandler>());
+        loadLayout(idx);
     }
     public void LoadFirstPegLayout()
     {
+        InitLayoutTracker();
+        int idx = generateIndex();
+        loadLayout(idx);
+    }
+    private int generateIndex ()
+    {
         int idx;
-        do { idx = Random.Range(0, layouts.Count); } while (currentIdx == idx);
-        
+        do { idx = layoutsNotVisited[Random.Range(0, layoutsNotVisited.Count)]; } while (currentIdx == idx);
+        currentIdx = idx;
+        layoutsNotVisited.RemoveAt(currentIdx);
+        Debug.Log($"Loading Layout {idx}");
+        return idx;
+    }
+    private void loadLayout (int  layoutIndex)
+    {
         currentLayout = (GameObject)Instantiate(layouts[idx], CurrentScene);
         GameManager.game.UpdateLayoutHandler(currentLayout.GetComponent<LayoutHandler>());
+    }
+    private void InitLayoutTracker ()
+    {
+        for (int i = 0; i < layouts.Count; i++)
+        {
+            layoutsNotVisited[i] = i;
+        }
     }
     public void LoadPrevScene()
     {
