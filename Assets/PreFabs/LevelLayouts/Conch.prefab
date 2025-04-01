@@ -542,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8281b8f94920df34b8ce1439c6b512ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orangeCount: 22
+  orangeCount: 25
   greenCount: 2
   purpleCount: 1
 --- !u!1 &1604963410537440097

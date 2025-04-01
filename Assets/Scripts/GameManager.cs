@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public int score;
     private int numOrangePegs;
     private List<Peg> touchedPegs;
+    public int ballActive { get; set; } = 0;
 
     private int levelsCompleted = 0;
 
@@ -58,6 +59,10 @@ public class GameManager : MonoBehaviour
 
     public void TouchPeg(Peg peg)
     {
+        if (peg.GetColor() == 'g')
+        {
+            playerController.poweredUp = true;
+        } 
         pitch = 1f + (0.2f * touchedPegs.Count);
         soundHandler.PlayPegHitSound(pitch);
 
@@ -67,17 +72,20 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn(bool isInBucket)
     {
+        ballActive--;
         if (isInBucket)
         {
+            if (PowerUpVaraible.powers[perks.origin] == 0) ballManager.AddBall(PowerUpVaraible.powers[perks.bonusFree]);
+            ballManager.AddBall();
             soundHandler.PlayInBucketSound();
             Debug.Log("Landed In Bucket");
             ballManager.AddBall();
         }
-        CalculateScore();
-
-        soundHandler.ResetPitch();
-        
-        clearPegsHelper(true);
+        if (ballActive <= 0) {
+            CalculateScore();
+            soundHandler.ResetPitch();
+            clearPegsHelper(true);
+        }
     }
 
     public void BallStuck()
@@ -117,11 +125,7 @@ public class GameManager : MonoBehaviour
         }
         scoreUI.UpdateScore(score);
     }
-    private void orangePegTouched() 
-    { 
-        numOrangePegs--; 
-        Debug.Log($"num orange pegs {numOrangePegs}"); 
-    }
+    private void orangePegTouched() { numOrangePegs--;}
     private void clearPegsHelper(bool endTurn)
     {
         StartCoroutine(clearPegs(endTurn));
@@ -145,7 +149,7 @@ public class GameManager : MonoBehaviour
                 //SceneNavigator.Navigator.LoadNewPegLayout();
                 EndLevel?.Invoke(true);
                 WinMenu.SetActive(true);
-                PauseManager.instance.Pause();
+                WinMenu.GetComponent<PerkSelection>().GeneratePerkButtons();
             }
             else if (ballManager.CheckOutOfBalls())
             {
@@ -183,6 +187,5 @@ public class GameManager : MonoBehaviour
     {
         this.layoutHandler = lh;
         numOrangePegs = layoutHandler.orangeCount;
-        Debug.Log($"num orange pegs {numOrangePegs}");
     }
 }

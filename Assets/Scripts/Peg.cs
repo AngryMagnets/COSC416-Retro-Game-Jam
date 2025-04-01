@@ -29,6 +29,16 @@ public class Peg : MonoBehaviour
             changeColor(highlights[charToColor(type)]);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (notHit)
+        {
+            PegHit?.Invoke(this);   //Sends Message with color of peg that this was hit
+            notHit = false;
+            changeColor(highlights[charToColor(type)]);
+        }
+    }
     /// <summary>
     /// Method <c>GetColor</c> Returns peg color
     /// </summary>

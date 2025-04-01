@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float shootForce = -10f;
 
     public bool canShoot { get; set; }
+    public bool poweredUp { get; set; }
 
     private void Awake()
     {
@@ -66,16 +68,56 @@ public class PlayerController : MonoBehaviour
         if (canShoot)
         {
             canShoot = false;
-            GameObject newBall = Instantiate(ball, shooterPivot.position, shooterPivot.rotation);
+            GameObject newBall = shootBall(poweredUp);
 
-            Rigidbody2D rb = newBall.GetComponent<Rigidbody2D>();
-
-            if (rb != null)
+            if (poweredUp)
             {
-                //apply force
-                rb.AddForce(shooterPivot.up * shootForce, ForceMode2D.Impulse);
+                switch (PowerUpVaraible.powers[perks.origin])
+                {
+                    case 0: //Multiball
+                        if (PowerUpVaraible.powers[perks.exploding] == 0)
+                        {
+                            int i = PowerUpVaraible.powers[perks.multiCount];
+                            while (i>0)
+                            {
+                                StartCoroutine(shootDelay(PowerUpVaraible.MultiballDelay * i, poweredUp));
+                                i--;
+                            }
+                        }
+                        break;
+                    case 1: //Fireball
+                        if (PowerUpVaraible.powers[perks.fireCover] != 0)
+                        {
+                            //add the cover to the ball bucket
+                        }
+                        break;
+                }
+                poweredUp = false;
             }
         }
+    }
+
+    IEnumerator shootDelay (float delay, bool powered)
+    {
+        yield return new WaitForSeconds (delay);
+        shootBall(powered);
+    }
+
+    private GameObject shootBall (bool powered)
+    {
+        GameObject newBall = Instantiate(ball, shooterPivot.position, shooterPivot.rotation);
+        GameManager.game.ballActive += 1;
+
+        Rigidbody2D rb = newBall.GetComponent<Rigidbody2D>();
+        BallPowerUp bpu = newBall.GetComponent<BallPowerUp>();
+        bpu.powered = powered;
+        bpu.Activate();
+        if (rb != null)
+        {
+            //apply force
+            rb.AddForce(shooterPivot.up * shootForce, ForceMode2D.Impulse);
+        }
+        return newBall;
     }
 
     public void NextTurn ()

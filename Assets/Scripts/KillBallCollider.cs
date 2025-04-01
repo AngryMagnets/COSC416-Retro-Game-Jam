@@ -18,8 +18,7 @@ public class KillBallCollider : MonoBehaviour
     {
         if (collision.CompareTag("Ball"))
         {
-            ballDestroyed?.Invoke(ballBucket);
-            GameObject.Destroy(collision.gameObject);
+            if (collision.gameObject.GetComponent<BallPowerUp>().TryDestroy()) ballDestroyed?.Invoke(ballBucket);
         }
     }
 }
