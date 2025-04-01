@@ -19,7 +19,7 @@ public class SoundHandler : MonoBehaviour
     {
         if (audioSource != null && shootSound != null)
         {
-            audioSource.PlayOneShot(shootSound, 2f);
+            audioSource.PlayOneShot(shootSound, 4f);
         }
     }
 }
