@@ -155,10 +155,6 @@ PrefabInstance:
       propertyPath: ballDestroyed.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1356009497582838977, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
-      propertyPath: startingBalls
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 1498496879436402719, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

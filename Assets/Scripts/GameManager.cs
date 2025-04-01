@@ -10,34 +10,44 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreUI scoreUI;
     [SerializeField] private PlayerController playerController;
     [SerializeField] private LayoutHandler layoutHandler;
+    [SerializeField] private GameObject WinMenu;
+    [SerializeField] private GameObject LossMenu;
 
     [Header ("Managed Variables")] 
     [SerializeField] private int[] pointValues = new int[4] { 10, 20, 20, 100 }; //0=blue, 1=orange, 2=green, 3=purple
+    [SerializeField] private int LevelsToWin = 5;
     //public bool isShotActive = false; // Pretty sure I don't need this, basically an alias for !PlayerController.canShoot
     public int numPegs { get; private set; }
     public int score;
     private int numOrangePegs;
     private List<Peg> touchedPegs;
 
+    private int levelsCompleted = 0;
+
     [Header("Events")]
     /// <summary>
     /// Set a listener for PlayerController.NextTurn()
     /// </summary>
     [SerializeField] public UnityEvent NextTurn;
-    [SerializeField] public UnityEvent OrangePegsCleared;
+
+    /// <summary>
+    /// UnityEvent <c>EndLevel</c> True = win, false = lose
+    /// </summary>
+    public UnityEvent<bool> EndLevel;
 
     void Start()
     {
-        NextTurn = new UnityEvent();
-        OrangePegsCleared = new UnityEvent();
+        WinMenu.SetActive (false);
+        LossMenu.SetActive (false);
+
         SceneNavigator.Navigator.LoadNewPegLayout();
 
         if (playerController == null) { playerController = Transform.FindFirstObjectByType<PlayerController>(); }
         
         touchedPegs = new List<Peg>(10);
 
+        //ballManager.OutOfBalls?.AddListener(SceneNavigator.Navigator.LoadMainMenu);
         NextTurn?.AddListener(layoutHandler.UpdatePurplePeg);
-        OrangePegsCleared?.AddListener(SceneNavigator.Navigator.LoadNewPegLayout);
     }
     protected void Awake() { game = GetComponent<GameManager>(); }
 
@@ -113,10 +123,35 @@ public class GameManager : MonoBehaviour
         {
             if (numOrangePegs <= 0)
             {
-                SceneNavigator.Navigator.LoadNewPegLayout();
-                ballManager.AddBallsHelper(ballManager.BallsUsed());
+                //SceneNavigator.Navigator.LoadNewPegLayout();
+                EndLevel?.Invoke(true);
+                WinMenu.SetActive(true);
             }
-            playerController.canShoot = !ballManager.CheckOutOfBalls();
+            else if (ballManager.CheckOutOfBalls())
+            {
+                EndLevel?.Invoke(false);
+                LossMenu.SetActive(true);
+            }
+            else
+            {
+                playerController.canShoot = true;
+                NextTurn?.Invoke();
+            }
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        levelsCompleted++;
+        WinMenu.SetActive(false);
+        if (levelsCompleted >= LevelsToWin)
+        {
+            //Win screen
+        }
+        else
+        {
+            SceneNavigator.Navigator.LoadNewPegLayout();
+            ballManager.AddBallsHelper(ballManager.startingBalls);
         }
     }
 
@@ -126,12 +161,4 @@ public class GameManager : MonoBehaviour
         numOrangePegs = layoutHandler.orangeCount;
         Debug.Log($"num orange pegs {numOrangePegs}");
     }
-}
-
-public enum pegTypes
-{
-    blue,
-    orange,
-    green,
-    purple
 }
