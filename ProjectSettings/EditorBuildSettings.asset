@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Win Loss Test 2.unity
     guid: 51af5e6fd37f2e5498ab1ae55864084f
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 0097c829154441b468fd018513de9b5a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
