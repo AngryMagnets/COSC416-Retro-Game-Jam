@@ -9,6 +9,7 @@ public class SoundHandler : MonoBehaviour
     [SerializeField] private AudioClip shootSound;
     [SerializeField] private AudioClip pegHitSound;
     [SerializeField] private AudioClip pegClearSound;
+    [SerializeField] private AudioClip inBucketSound;
 
     public void PlayButtonClickSound()
     {
@@ -40,5 +41,10 @@ public class SoundHandler : MonoBehaviour
     public void PlayPegClearSound()
     {
         audioSource.PlayOneShot(pegClearSound, 5f);
+    }
+
+    public void PlayInBucketSound()
+    {
+        audioSource.PlayOneShot(inBucketSound, 5f);
     }
 }

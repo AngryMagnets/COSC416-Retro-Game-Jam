@@ -756,6 +756,7 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 23716a0e586d3c04894567b7d4dbad76, type: 3}
   pegHitSound: {fileID: 8300000, guid: 8fbd272abf2a28e4488dbb1a2bf49883, type: 3}
   pegClearSound: {fileID: 8300000, guid: 37fe41303405d5049977d55e23ebc4a8, type: 3}
+  inBucketSound: {fileID: 8300000, guid: 5a27af446eda27148aab249da1d9b778, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

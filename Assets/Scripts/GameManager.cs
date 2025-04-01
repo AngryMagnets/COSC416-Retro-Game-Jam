@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     {
         if (isInBucket)
         {
+            soundHandler.PlayInBucketSound();
             Debug.Log("Landed In Bucket");
             ballManager.AddBall();
         }
