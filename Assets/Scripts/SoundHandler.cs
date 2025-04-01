@@ -11,6 +11,18 @@ public class SoundHandler : MonoBehaviour
     [SerializeField] private AudioClip pegClearSound;
     [SerializeField] private AudioClip inBucketSound;
 
+    public void SetVolume(float newVolume)
+    {
+        if (audioSource != null)
+        {
+            audioSource.volume = newVolume;
+        }
+        if (pegAudioSource != null)
+        {
+            pegAudioSource.volume = newVolume;
+        }
+    }
+
     public void PlayButtonClickSound()
     {
         if (audioSource != null && buttonClickSound != null)
@@ -29,22 +41,34 @@ public class SoundHandler : MonoBehaviour
 
     public void PlayPegHitSound(float pitch)
     {
-        pegAudioSource.pitch = pitch;
-        pegAudioSource.PlayOneShot(pegHitSound, 5f);
+        if (pegAudioSource != null && pegHitSound != null)
+        {
+            pegAudioSource.pitch = pitch;
+            pegAudioSource.PlayOneShot(pegHitSound, 5f);
+        }
     }
 
     public void ResetPitch()
     {
-        pegAudioSource.pitch = 1f;
+        if (pegAudioSource)
+        {
+            pegAudioSource.pitch = 1f;
+        }
     }
 
     public void PlayPegClearSound()
     {
-        audioSource.PlayOneShot(pegClearSound, 5f);
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(pegClearSound, 5f);
+        }
     }
 
     public void PlayInBucketSound()
     {
-        audioSource.PlayOneShot(inBucketSound, 5f);
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(inBucketSound, 5f);
+        }
     }
 }
