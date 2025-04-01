@@ -60,11 +60,6 @@ public class GameManager : MonoBehaviour
         soundHandler.PlayPegHitSound(pitch);
 
         touchedPegs.Add(peg);
-
-        if (numOrangePegs == 1)
-        {
-            soundHandler.SwitchToWinMusic();
-        }
     }
 
     public void EndTurn(bool isInBucket)
