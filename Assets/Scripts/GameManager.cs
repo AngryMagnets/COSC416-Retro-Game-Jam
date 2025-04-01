@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void TouchPeg(Peg peg)
     {
-        pitch = 1f + (0.1f * touchedPegs.Count);
+        pitch = 1f + (0.2f * touchedPegs.Count);
         soundHandler.PlayPegHitSound(pitch);
 
         touchedPegs.Add(peg);
