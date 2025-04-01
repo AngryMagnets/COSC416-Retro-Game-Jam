@@ -31,14 +31,24 @@ public class PauseManager : MonoBehaviour
 
     public void EnableSettingsMenu()
     {
-        Time.timeScale = 0f;
+        Pause();
         settingsMenu.SetActive(true);
-        isSettingsMenuActive = true;
     }
     public void DisableSettingsMenu()
     {
-        Time.timeScale = 1f;
+        UnPause();
         settingsMenu.SetActive(false);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        isSettingsMenuActive = true;
+    }
+
+    public void UnPause()
+    {
+        Time.timeScale = 1f;
         isSettingsMenuActive = false;
     }
 

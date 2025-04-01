@@ -502,7 +502,15 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3343368387268560713, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343368387268560713, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343368387268560713, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3569528130218093165, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
@@ -555,6 +563,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3972086092055849857, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173057381509309682, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4173057381509309682, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
@@ -789,6 +801,8 @@ MonoBehaviour:
   pegHitSound: {fileID: 8300000, guid: 8fbd272abf2a28e4488dbb1a2bf49883, type: 3}
   pegClearSound: {fileID: 8300000, guid: 37fe41303405d5049977d55e23ebc4a8, type: 3}
   inBucketSound: {fileID: 8300000, guid: 5a27af446eda27148aab249da1d9b778, type: 3}
+  normalMusic: {fileID: 8300000, guid: 9a14c53bf48b4d34f8bd994e9fb9d6d5, type: 3}
+  winMusic: {fileID: 8300000, guid: 9b9d834d8c9598b43855c11c0874bc6d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
