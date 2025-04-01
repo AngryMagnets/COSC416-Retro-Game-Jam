@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayoutHandler layoutHandler;
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject LossMenu;
+    [SerializeField] private SoundHandler soundHandler;
 
     [Header ("Managed Variables")] 
     [SerializeField] private int[] pointValues = new int[4] { 10, 20, 20, 100 }; //0=blue, 1=orange, 2=green, 3=purple
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     private List<Peg> touchedPegs;
 
     private int levelsCompleted = 0;
+
+    private float pitch;
 
     [Header("Events")]
     /// <summary>
@@ -53,6 +56,9 @@ public class GameManager : MonoBehaviour
 
     public void TouchPeg(Peg peg)
     {
+        pitch = 1f + (0.1f * touchedPegs.Count);
+        soundHandler.PlayPegHitSound(pitch);
+
         touchedPegs.Add(peg);
     }
 
@@ -64,6 +70,8 @@ public class GameManager : MonoBehaviour
             ballManager.AddBall();
         }
         CalculateScore();
+
+        soundHandler.ResetPitch();
         
         clearPegsHelper(true);
     }

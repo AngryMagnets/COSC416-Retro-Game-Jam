@@ -4,8 +4,10 @@ using UnityEngine.UI;
 public class SoundHandler : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource pegAudioSource;
     [SerializeField] private AudioClip buttonClickSound;
     [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip pegHitSound;
 
     public void PlayButtonClickSound()
     {
@@ -21,5 +23,16 @@ public class SoundHandler : MonoBehaviour
         {
             audioSource.PlayOneShot(shootSound, 4f);
         }
+    }
+
+    public void PlayPegHitSound(float pitch)
+    {
+        pegAudioSource.pitch = pitch;
+        pegAudioSource.PlayOneShot(pegHitSound, 4f);
+    }
+
+    public void ResetPitch()
+    {
+        pegAudioSource.pitch = 1f;
     }
 }
