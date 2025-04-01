@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayoutHandler layoutHandler;
     [SerializeField] private GameObject WinMenu;
     [SerializeField] private GameObject LossMenu;
+    [SerializeField] private SoundHandler soundHandler;
 
     [Header ("Managed Variables")] 
     [SerializeField] private int[] pointValues = new int[4] { 10, 20, 20, 100 }; //0=blue, 1=orange, 2=green, 3=purple
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     public int ballActive { get; set; } = 0;
 
     private int levelsCompleted = 0;
+
+    private float pitch;
 
     [Header("Events")]
     /// <summary>
@@ -52,13 +55,19 @@ public class GameManager : MonoBehaviour
     }
     protected void Awake() { game = GetComponent<GameManager>(); }
 
+    public LayoutHandler GetLayoutHandler() { return this.layoutHandler; }
+
     public void TouchPeg(Peg peg)
     {
         if (peg.GetColor() == 'g')
         {
             playerController.poweredUp = true;
         } 
+        pitch = 1f + (0.2f * touchedPegs.Count);
+        soundHandler.PlayPegHitSound(pitch);
+
         touchedPegs.Add(peg);
+        soundHandler.TrackOrangePegs(peg);
     }
 
     public void EndTurn(bool isInBucket)
@@ -68,10 +77,13 @@ public class GameManager : MonoBehaviour
         {
             if (PowerUpVaraible.powers[perks.origin] == 0) ballManager.AddBall(PowerUpVaraible.powers[perks.bonusFree]);
             ballManager.AddBall();
+            soundHandler.PlayInBucketSound();
+            Debug.Log("Landed In Bucket");
+            ballManager.AddBall();
         }
         if (ballActive <= 0) {
             CalculateScore();
-
+            soundHandler.ResetPitch();
             clearPegsHelper(true);
         }
     }
@@ -125,6 +137,9 @@ public class GameManager : MonoBehaviour
             GameObject destroyTarget = touchedPegs[0].gameObject;
             Destroy(destroyTarget);
             touchedPegs.RemoveAt(0);
+
+            soundHandler.PlayPegClearSound();
+
             yield return new WaitForSeconds(0.12f);
         }
         if (endTurn)
@@ -140,6 +155,7 @@ public class GameManager : MonoBehaviour
             {
                 EndLevel?.Invoke(false);
                 LossMenu.SetActive(true);
+                PauseManager.instance.Pause();
             }
             else
             {
@@ -153,6 +169,8 @@ public class GameManager : MonoBehaviour
     {
         levelsCompleted++;
         WinMenu.SetActive(false);
+        soundHandler.PlayDefaultMusic();
+        PauseManager.instance.UnPause();
         if (levelsCompleted >= LevelsToWin)
         {
             //Win screen
@@ -161,6 +179,7 @@ public class GameManager : MonoBehaviour
         {
             SceneNavigator.Navigator.LoadNewPegLayout();
             ballManager.AddBallsHelper(ballManager.startingBalls);
+            soundHandler.FindOrangePegs();
         }
     }
 
