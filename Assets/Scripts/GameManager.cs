@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour
         soundHandler.PlayPegHitSound(pitch);
 
         touchedPegs.Add(peg);
+
+        if (numOrangePegs == 1)
+        {
+            soundHandler.SwitchToWinMusic();
+        }
     }
 
     public void EndTurn(bool isInBucket)
@@ -114,7 +119,11 @@ public class GameManager : MonoBehaviour
         }
         scoreUI.UpdateScore(score);
     }
-    private void orangePegTouched() { numOrangePegs--; Debug.Log($"num orange pegs {numOrangePegs}"); }
+    private void orangePegTouched() 
+    { 
+        numOrangePegs--; 
+        Debug.Log($"num orange pegs {numOrangePegs}"); 
+    }
     private void clearPegsHelper(bool endTurn)
     {
         StartCoroutine(clearPegs(endTurn));
@@ -138,7 +147,6 @@ public class GameManager : MonoBehaviour
                 //SceneNavigator.Navigator.LoadNewPegLayout();
                 EndLevel?.Invoke(true);
                 WinMenu.SetActive(true);
-                soundHandler.SwitchToWinMusic();
                 PauseManager.instance.Pause();
             }
             else if (ballManager.CheckOutOfBalls())
