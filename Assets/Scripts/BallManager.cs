@@ -24,7 +24,7 @@ public class BallManager : MonoBehaviour
     [SerializeField] 
     private GameObject ball;
     [SerializeField]
-    private int startingBalls;
+    public int startingBalls;
    
     [Header("Removal Animation")]
     [SerializeField]
@@ -36,17 +36,13 @@ public class BallManager : MonoBehaviour
     public int numBalls { get; private set; }
     private List<GameObject> ballList;
 
-    private void Start()
+    void Awake()
     {
         numBalls = 0;
         ballList = new List<GameObject>(startingBalls);
-        OutOfBalls = new UnityEvent();
-    }
-    void Awake()
-    {
         player.canShoot = false;
-        //StartCoroutine(AddBalls(startingBalls));
-        StartCoroutine(DevAddBalls(startingBalls));
+        StartCoroutine(AddBalls(startingBalls));
+        //StartCoroutine(DevAddBalls(startingBalls));
     }
 
     public void AddBall ()
@@ -102,21 +98,16 @@ public class BallManager : MonoBehaviour
     private IEnumerator AddBalls (int ballCount)
     {
         player.canShoot = false;
-        if (ballCount > 0)
+        while (ballCount > 0)
         {
-            yield return new WaitForSeconds(0.3f);
             GameObject spawnBall = Instantiate(ball, spawnPoint.position, Quaternion.identity);
             ballList.Add(spawnBall);
             numBalls++;
             updateText();
-            StartCoroutine(AddBalls(ballCount - 1));
+            ballCount -= 1;
+            yield return new WaitForSeconds(0.3f);
         }
-        else
-        {
-            //Debug.Log("Setting canShoot True");
-            player.canShoot = true;
-        }
-        yield return null;
+        player.canShoot = true;
     }
     private IEnumerator DevAddBalls(int ballCount)
     {

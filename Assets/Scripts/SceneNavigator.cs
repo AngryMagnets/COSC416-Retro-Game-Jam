@@ -10,14 +10,11 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class SceneNavigator : MonoBehaviour
 {
-    [SerializeReference]
     public static SceneNavigator Navigator;
     
-    [SerializeField]
     public static Scene CurrentScene { get; private set; }
-    [SerializeField]
     private static int numLevels;
-    private static int levelsCompleted, currentIdx = -1;
+    private static int currentIdx = -1;
     
     /// <summary>
     /// A list for prefabs of a peg layout and their associated background to be stored in.
@@ -91,9 +88,12 @@ public class SceneNavigator : MonoBehaviour
     {
         HandleErrorOnLoad(CurrentScene.buildIndex - 1);
     }
+    public void ReloadScene()
+    {
+        HandleErrorOnLoad(CurrentScene.buildIndex);
+    }
     public void LoadMainMenu()
     {
-        levelsCompleted = 0;
         HandleErrorOnLoad(0);
     }
 
