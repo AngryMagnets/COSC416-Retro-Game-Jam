@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int score;
     private int numOrangePegs;
     private List<Peg> touchedPegs;
+    public int ballActive { get; set; } = 0;
 
     private int levelsCompleted = 0;
 
@@ -53,19 +54,26 @@ public class GameManager : MonoBehaviour
 
     public void TouchPeg(Peg peg)
     {
+        if (peg.GetColor() == 'g')
+        {
+            playerController.poweredUp = true;
+        } 
         touchedPegs.Add(peg);
     }
 
     public void EndTurn(bool isInBucket)
     {
+        ballActive--;
         if (isInBucket)
         {
-            Debug.Log("Landed In Bucket");
+            if (PowerUpVaraible.powers[perks.origin] == 0) ballManager.AddBall(PowerUpVaraible.powers[perks.bonusFree]);
             ballManager.AddBall();
         }
-        CalculateScore();
-        
-        clearPegsHelper(true);
+        if (ballActive <= 0) {
+            CalculateScore();
+
+            clearPegsHelper(true);
+        }
     }
 
     public void BallStuck()
@@ -105,7 +113,7 @@ public class GameManager : MonoBehaviour
         }
         scoreUI.UpdateScore(score);
     }
-    private void orangePegTouched() { numOrangePegs--; Debug.Log($"num orange pegs {numOrangePegs}"); }
+    private void orangePegTouched() { numOrangePegs--;}
     private void clearPegsHelper(bool endTurn)
     {
         StartCoroutine(clearPegs(endTurn));
@@ -126,6 +134,7 @@ public class GameManager : MonoBehaviour
                 //SceneNavigator.Navigator.LoadNewPegLayout();
                 EndLevel?.Invoke(true);
                 WinMenu.SetActive(true);
+                WinMenu.GetComponent<PerkSelection>().GeneratePerkButtons();
             }
             else if (ballManager.CheckOutOfBalls())
             {
@@ -159,6 +168,5 @@ public class GameManager : MonoBehaviour
     {
         this.layoutHandler = lh;
         numOrangePegs = layoutHandler.orangeCount;
-        Debug.Log($"num orange pegs {numOrangePegs}");
     }
 }
