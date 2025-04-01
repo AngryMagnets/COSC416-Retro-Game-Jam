@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6740258b39caf144d96e4dd42e25daab
+guid: 520e69e78ddf4524593c52be1abbbe36
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1009239755388778629
-    second: Gem Type4 Black_0
+      213: 3041970383809997380
+    second: Octopus_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,8 +51,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 16, y: 16, z: 16, w: 16}
+  spritePixelsToUnits: 85
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gem Type4 Black_0
+      name: Octopus_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 52
-        height: 52
+        width: 768
+        height: 768
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 16, z: 16, w: 16}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5887629d53a810e00800000000000000
-      internalID: 1009239755388778629
+      spriteID: 44ae04072ff373a20800000000000000
+      internalID: 3041970383809997380
       vertices: []
       indices: 
       edges: []
@@ -137,84 +137,18 @@ TextureImporter:
     outline: []
     customData: 
     physicsShape: []
-    bones:
-    - name: bone_1
-      guid: c16036b0cbe485f49aabc1390dc3d920
-      position: {x: 24.768064, y: 0.067757525, z: 0}
-      rotation: {x: 0, y: 0, z: 0.7007278, w: 0.71342874}
-      length: 10.2883215
-      parentId: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278190335
-    - name: bone_2
-      guid: 40763c2836df2f348a61141c5c42f7da
-      position: {x: 25.44563, y: 52.05544, z: 0}
-      rotation: {x: 0, y: 0, z: -0.7307613, w: 0.6826331}
-      length: 10.866204
-      parentId: -1
-      color:
-        serializedVersion: 2
-        rgba: 4278255615
+    bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
-    vertices:
-    - {x: 52, y: 0}
-    - {x: 52, y: 52}
-    - {x: 0, y: 52}
-    - {x: 0, y: 0}
-    indices: 000000000200000001000000000000000300000002000000
-    edges:
-    - {x: 0, y: 1}
-    - {x: 0, y: 3}
-    - {x: 1, y: 2}
-    - {x: 2, y: 3}
-    weights:
-    - 'weight[0]': 0
-      'weight[1]': 0
-      'weight[2]': 0
-      'weight[3]': 0
-      'boneIndex[0]': 0
-      'boneIndex[1]': 0
-      'boneIndex[2]': 0
-      'boneIndex[3]': 0
-    - 'weight[0]': 0
-      'weight[1]': 0
-      'weight[2]': 0
-      'weight[3]': 0
-      'boneIndex[0]': 1
-      'boneIndex[1]': 0
-      'boneIndex[2]': 0
-      'boneIndex[3]': 0
-    - 'weight[0]': 0
-      'weight[1]': 0
-      'weight[2]': 0
-      'weight[3]': 0
-      'boneIndex[0]': 1
-      'boneIndex[1]': 1
-      'boneIndex[2]': 0
-      'boneIndex[3]': 0
-    - 'weight[0]': 0
-      'weight[1]': 0
-      'weight[2]': 0
-      'weight[3]': 0
-      'boneIndex[0]': 0
-      'boneIndex[1]': 0
-      'boneIndex[2]': 0
-      'boneIndex[3]': 0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gem Type4 Black_0: 1009239755388778629
-      Gem Type4 Black_1: 501768939
-      Gem Type4 Black_2: 973195138
-      Gem Type4 Black_3: -654858461
-      Gem Type4 Black_4: 1349253227
-      Gem Type4 Black_5: -1726061768
-      Gem Type4 Black_6: -1178731536
-      Gem Type4 Black_7: -1927644732
-      Gem Type4 Black_8: 320190511
+      Octopus_0: 3041970383809997380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

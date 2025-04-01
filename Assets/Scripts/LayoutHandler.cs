@@ -67,6 +67,7 @@ public class LayoutHandler : MonoBehaviour
         {
             i = Random.Range(0, pegs.Length);
         } while (!checkForBluePeg(i));
+        purplePeg = pegs[i];
         pegs[i].UpdateColor('p');
     }
 
