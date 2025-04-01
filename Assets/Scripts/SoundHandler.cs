@@ -1,5 +1,7 @@
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SoundHandler : MonoBehaviour
 {
@@ -14,11 +16,29 @@ public class SoundHandler : MonoBehaviour
     [SerializeField] private AudioClip normalMusic;
     [SerializeField] private AudioClip winMusic;
 
+    private List<Peg> orangePegs = new List<Peg>();
+
     private void Start()
     {
+        FindOrangePegs();
         PlayDefaultMusic();
     }
-
+    public void FindOrangePegs ()
+    {
+        orangePegs.AddRange(GameManager.game.GetLayoutHandler().GetComponentsInChildren<Peg>());
+        List<Peg> temp = new List<Peg>();
+        foreach (Peg p in orangePegs)
+        {
+            if (p.GetColor() != 'o')
+            {
+                temp.Add(p);
+            }
+        }
+        foreach (Peg p in temp)
+        {
+            orangePegs.Remove(p);
+        }
+    }
     public void PlayDefaultMusic()
     {
         if (audioSource != null)
@@ -107,6 +127,15 @@ public class SoundHandler : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.PlayOneShot(inBucketSound, 5f);
+        }
+    }
+
+    public void TrackOrangePegs (Peg p)
+    {
+        orangePegs.Remove(p);
+        if (orangePegs.Count == 1 && p.GetColor() == 'o')
+        {
+            SwitchToWinMusic();
         }
     }
 }

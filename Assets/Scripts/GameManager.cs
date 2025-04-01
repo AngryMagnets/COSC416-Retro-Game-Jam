@@ -54,12 +54,15 @@ public class GameManager : MonoBehaviour
     }
     protected void Awake() { game = GetComponent<GameManager>(); }
 
+    public LayoutHandler GetLayoutHandler() { return this.layoutHandler; }
+
     public void TouchPeg(Peg peg)
     {
         pitch = 1f + (0.2f * touchedPegs.Count);
         soundHandler.PlayPegHitSound(pitch);
 
         touchedPegs.Add(peg);
+        soundHandler.TrackOrangePegs(peg);
     }
 
     public void EndTurn(bool isInBucket)
@@ -172,6 +175,7 @@ public class GameManager : MonoBehaviour
         {
             SceneNavigator.Navigator.LoadNewPegLayout();
             ballManager.AddBallsHelper(ballManager.startingBalls);
+            soundHandler.FindOrangePegs();
         }
     }
 
