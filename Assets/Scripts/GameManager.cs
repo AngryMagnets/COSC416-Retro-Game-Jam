@@ -139,11 +139,13 @@ public class GameManager : MonoBehaviour
                 EndLevel?.Invoke(true);
                 WinMenu.SetActive(true);
                 soundHandler.SwitchToWinMusic();
+                PauseManager.instance.Pause();
             }
             else if (ballManager.CheckOutOfBalls())
             {
                 EndLevel?.Invoke(false);
                 LossMenu.SetActive(true);
+                PauseManager.instance.Pause();
             }
             else
             {
@@ -158,6 +160,7 @@ public class GameManager : MonoBehaviour
         levelsCompleted++;
         WinMenu.SetActive(false);
         soundHandler.PlayDefaultMusic();
+        PauseManager.instance.UnPause();
         if (levelsCompleted >= LevelsToWin)
         {
             //Win screen
