@@ -149,7 +149,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 9a14c53bf48b4d34f8bd994e9fb9d6d5, type: 3}
   m_Resource: {fileID: 8300000, guid: 9a14c53bf48b4d34f8bd994e9fb9d6d5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -334,11 +334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3569528130218093165, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayClickSound
+      value: PlayButtonClickSound
       objectReference: {fileID: 0}
     - target: {fileID: 3569528130218093165, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ButtonClickSound, Assembly-CSharp
+      value: SoundHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3569528130218093165, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -390,11 +390,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5261655556595105435, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayClickSound
+      value: PlayButtonClickSound
       objectReference: {fileID: 0}
     - target: {fileID: 5261655556595105435, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ButtonClickSound, Assembly-CSharp
+      value: SoundHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5261655556595105435, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -426,11 +426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7340443563700791332, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayClickSound
+      value: PlayButtonClickSound
       objectReference: {fileID: 0}
     - target: {fileID: 7340443563700791332, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ButtonClickSound, Assembly-CSharp
+      value: SoundHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7340443563700791332, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -484,13 +484,13 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5782229694767312737, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 2616284532092336615, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2141131106}
   m_SourcePrefab: {fileID: 100100000, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
 --- !u!1 &2141131105 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5782229694767312737, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2616284532092336615, guid: 2570dc992b485b8458f940fe89574b1a, type: 3}
   m_PrefabInstance: {fileID: 2141131104}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2141131106
@@ -507,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1496612266}
   buttonClickSound: {fileID: 8300000, guid: 5123cd21e2cc0594d8938b449bba2cf9, type: 3}
+  shootSound: {fileID: 8300000, guid: 23716a0e586d3c04894567b7d4dbad76, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
