@@ -125,6 +125,9 @@ public class GameManager : MonoBehaviour
             GameObject destroyTarget = touchedPegs[0].gameObject;
             Destroy(destroyTarget);
             touchedPegs.RemoveAt(0);
+
+            soundHandler.PlayPegClearSound();
+
             yield return new WaitForSeconds(0.12f);
         }
         if (endTurn)

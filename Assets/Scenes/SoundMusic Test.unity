@@ -755,6 +755,7 @@ MonoBehaviour:
   buttonClickSound: {fileID: 8300000, guid: 5123cd21e2cc0594d8938b449bba2cf9, type: 3}
   shootSound: {fileID: 8300000, guid: 23716a0e586d3c04894567b7d4dbad76, type: 3}
   pegHitSound: {fileID: 8300000, guid: 8fbd272abf2a28e4488dbb1a2bf49883, type: 3}
+  pegClearSound: {fileID: 8300000, guid: 37fe41303405d5049977d55e23ebc4a8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
