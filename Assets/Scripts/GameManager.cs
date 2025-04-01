@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
                 //SceneNavigator.Navigator.LoadNewPegLayout();
                 EndLevel?.Invoke(true);
                 WinMenu.SetActive(true);
+                soundHandler.SwitchToWinMusic();
             }
             else if (ballManager.CheckOutOfBalls())
             {
@@ -156,6 +157,7 @@ public class GameManager : MonoBehaviour
     {
         levelsCompleted++;
         WinMenu.SetActive(false);
+        soundHandler.PlayDefaultMusic();
         if (levelsCompleted >= LevelsToWin)
         {
             //Win screen

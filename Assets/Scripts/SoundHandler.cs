@@ -11,6 +11,44 @@ public class SoundHandler : MonoBehaviour
     [SerializeField] private AudioClip pegClearSound;
     [SerializeField] private AudioClip inBucketSound;
 
+    [SerializeField] private AudioClip normalMusic;
+    [SerializeField] private AudioClip winMusic;
+
+    private void Start()
+    {
+        PlayDefaultMusic();
+    }
+
+    public void PlayDefaultMusic()
+    {
+        if (audioSource != null)
+        {
+            //stop current music
+            audioSource.Stop();
+
+            //switch clip
+            audioSource.clip = normalMusic;
+            audioSource.loop = true;
+
+            audioSource.Play();
+        }
+    }
+
+    public void SwitchToWinMusic()
+    {
+        if (audioSource != null)
+        {
+            //stop current music
+            audioSource.Stop();
+
+            //switch clip
+            audioSource.clip = winMusic;
+            audioSource.loop = false;
+
+            audioSource.Play();
+        }  
+    }
+
     public void SetVolume(float newVolume)
     {
         if (audioSource != null)
